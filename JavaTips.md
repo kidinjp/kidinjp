@@ -191,6 +191,10 @@
 ※ 各ラッパークラスの親クラス：`java.lang.Number`
 ※ ラッパークラスは、プリミティブ型の値をオブジェクトにラップする
 ``` Java
+// char 英文字と int の互換関係
+System.out.println((int)'A');  // 65
+System.out.println((int)'a');  // 97
+
 // long と float は数値の後ろに(L/l)(F/f)を付ける必要がある
 long l = 1000000000000000L;
 float f = 0.5f;
