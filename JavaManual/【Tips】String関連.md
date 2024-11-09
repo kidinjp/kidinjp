@@ -42,6 +42,7 @@
 * [その他（合わせ技的な）](#その他合わせ技的な)
   * [指定内容は文字列内に特定内容の出現回数を数える](#指定内容は文字列内に特定内容の出現回数を数える)
   * [文字列をforで一個ずつ取り出す方法_.toCharArray()](#文字列をforで一個ずつ取り出す方法_tochararray)
+  * [a-zを出力する方法\(##a-zを出力する方法)
 
 なお、便宜を図って、各型のデフォ値を下記通りとする。  
 `String` s = "Abc123";  
@@ -299,3 +300,12 @@ long count = sb.chars().filter(ch -> ch == char文字).count();
 for (char i : s.toCharArray()) {(以下略)  
 for (char i : sb.toCharArray()) {(以下略)
 
+### a-zを出力する方法
+1. 
+for (char i = 'a'; i < 'z' + 1; i++) {  
+    System.out.println(i);  
+}  
+2. 
+for (int i = 0; i < 26; i++) {  
+    System.out.println((char) ('a' + i));  
+}
