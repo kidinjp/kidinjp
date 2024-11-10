@@ -2,9 +2,11 @@
   * [・数字処理](#数字処理)
     * [Integerの最小値/最大値を呼び出す](#integerの最小値/最大値を呼び出す)
     * [NaN（Infinity）](#naninfinity)
-    * [NaNであるかどうかをチェック](#nanであるかどうかをチェック)
+     * [NaNになる条件](#nanになる条件)
+     * [NaNであるかどうかをチェック](#nanであるかどうかをチェック)
     * [無限大（Infinity）](#無限大infinity)
-    * [無限大であるかどうかをチェック](#無限大であるかどうかをチェック)
+     * [無限大になる条件])(#無限大になる条件)
+     * [無限大であるかどうかをチェック](#無限大であるかどうかをチェック)
     * [二つの数字での比較](#二つの数字での比較)
   * [・ビット](#ビット)
     * [1. ビット基本操作](#1-ビット基本操作)
@@ -87,27 +89,29 @@ Integer.MAX_VALUE
 ### NaN（Infinity）
 double型/ float型しか扱えない。  
 なお、NaNは他のNaNとは等しくない。  
-**NaNになる条件：**  
+
+#### NaNになる条件
 * 0を0で割る
 * 無限大から無限大を引く
 * 平方根を負の数に対して計算する（Math.sqrt(-1)）
 * ゼロと無限大の掛け算など、数学的に定義できない結果が出た際
 * 文字列を数値に変換しようとした際
 
-### NaNであるかどうかをチェック
+#### NaNであるかどうかをチェック
 Double.isNaN(n);  
 Float.isNaN(n);
 
 ### 無限大（Infinity）
 double型/ float型しか扱えない。  
-**無限大になる条件：**  
+
+#### 無限大になる条件
 * 0で割る
 * 非常に大きな値を超える計算
 * 無限大間での計算
 * Double.POSITIVE_INFINITY/ Float.POSITIVE_INFINITY（正の無限）
 * Double.NEGATIVE_INFINITY/ Float.NEGATIVE_INFINITY（負の無限）
 
-### 無限大であるかどうかをチェック
+#### 無限大であるかどうかをチェック
 Double.isInfinite(n);  
 Float.isInfinite(n);
 
