@@ -283,6 +283,7 @@ map.entrySet().parallelStream().forEach(entry -> {
 ```
 
 | メリット | コスト | 順序の保持 | 推奨度 |
+| --- | --- | --- | --- |
 | forEach | O(n) | O(挿入順) | ◎シンプルで最適 |
 | keySet() + for | O(n) ~ O(n^2) | O(挿入順) | △非効率 |
 | entrySet() + for | O(n) | O(挿入順) | △効率的かつ標準 |
@@ -333,7 +334,7 @@ for (Map.Entry<String, String> entry : sortedMap.entrySet()) {
 ```
 
 #### Value昇順
-stream使用するので、`import java.util.stream.*;`を掛ける必要がある
+* stream使用するので、`import java.util.stream.*;`を掛ける必要がある
 ```Java
 LinkedHashMap<String, Integer> sortedByValueAsc = map.entrySet().stream()
     .sorted(Map.Entry.comparingByValue())
@@ -346,7 +347,7 @@ LinkedHashMap<String, Integer> sortedByValueAsc = map.entrySet().stream()
 ```
 
 #### Value降順
-stream使用するので、`import java.util.stream.*;`を掛ける必要がある
+* stream使用するので、`import java.util.stream.*;`を掛ける必要がある
 ```Java
 LinkedHashMap<String, Integer> sortedByValueDesc = map.entrySet().stream()
     .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
