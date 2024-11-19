@@ -76,8 +76,8 @@ deque.offerLast(x);
 ### 削除
 #### 前端から要素を削除
 * deque.removeFirst();
-* deque.pop();　⇒　キュー操作 (FIFO)
-* deque.poll();　⇒　スタック操作 (LIFO)
+* deque.pop();　⇒　スタック操作 (LIFO)
+* deque.poll();　⇒　キュー操作 (FIFO)
 
 ※ 空の場合エラー出る
 
