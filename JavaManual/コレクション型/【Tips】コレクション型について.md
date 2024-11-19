@@ -110,6 +110,18 @@ stack.push("Apple");
 stack.push("Banana");
 stack.pop();  // "Banana"が取り出される
 ```
+| 特徴 | キュー操作 (FIFO) | スタック操作 (LIFO) |
+| --- | --- | --- |
+| 構造の定義 | 先入れ先出し<br>First In, First Out | 後入れ先出し<br>Last In, First Out |
+| 典型的な用途 | タスクの順序処理<br>プリンだジョブ管理 | 処理の巻き戻し<br>関数コールスタック |
+| 要素の追加要素 | `offer(e)` または<br>`add(e)`後端に追加 | `push(e)`先端に追加 |
+| 要素の削除方法 | `poll()` または<br>`remove()`前端から削除 | `pop()`先端から削除 |
+| 要素の参照方法 | `peek()`前端の要素を取得・削除しない | `peek()`先端の要素を取得、削除しない |
+| 空のときの挙動 | `poll()` ⇒ nullを返す | `pop()` ⇒ NoSuchExceptionをスロー  |
+| インターフェイス | `Queue`(Dequeを通じて実装可能) | `Deque`(Stackより推奨される) |
+| 使用するメソッド例 | `add(e)`<br>`offer(e)`<br>`poll()`<br>`peek()` | `push(e)`<br>`pop()`<br>`peek()` |
+| 実装の例	 | `PriorityQueue`<br>`LinkedList` | `ArrayDeque`<br>`Stack`(非推奨) |
+| 適した場面 | 並列タスクの処理、<br>イベントの順序制御 | バックトラッキング、<br>DFS（深き優先探索） |
 
 ***************************************************************************
 ## Deque(デック)
