@@ -61,7 +61,7 @@ ArrayDeque<Integer> deque = new ArrayDeque<>(li);
 ### 要素の追加
 #### 先端に要素を追加
 * deque.addFirst(x);
-* deque.push(x);
+* deque.push(x);　⇒　スタック操作 (LIFO)
 
 #### 先端に要素を追加、エラー出る場合falseを返す
 deque.offerFirst(x);
@@ -76,7 +76,8 @@ deque.offerLast(x);
 ### 削除
 #### 前端から要素を削除
 * deque.removeFirst();
-* deque.pop();
+* deque.pop();　⇒　キュー操作 (FIFO)
+* deque.poll();　⇒　スタック操作 (LIFO)
 
 ※ 空の場合エラー出る
 
