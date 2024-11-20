@@ -6,7 +6,7 @@
 
 ## コード
 ### 変数の型を確認する方法
-1. x`.getClass()``.getName()`;  
+1. x`.getClass()` `.getName()`;  
 ※ プリミティブ型変数には使用できない（エラーする）  
 出力例：`java.lang.String`
 
