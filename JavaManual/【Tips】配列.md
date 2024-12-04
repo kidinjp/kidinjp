@@ -94,6 +94,8 @@ String[] result = Stream.concat(Arrays.stream(arr1), Arrays.stream(arr2))
 ### 出力
 直接にliを出力しようとすると[Ljava.lang.Integer;@2626b418のような内容が出来るので、Arrays.toString()などの処理が必要  
 Arrays.asList(arr).forEach(i -> System.out.println(i));  
+※ `プリミティブ型配列`の場合、全体的にオブジェクト化されるため`[I@5fd0d5ae`のような内容になる  
+Arrays.stream(arr)  
 Arrays.toString(li)  
 Arrays.deepToString(li)　⇒　二重配列
 
