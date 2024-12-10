@@ -195,7 +195,8 @@ Arrays.toString(arr);
 Arrays.deepToString(arr);
 
 #### 配列をリストに変換
-Arrays.asList(arr);
+Arrays.asList(arr);  
+※ intなどのプリミティブ型配列は直接に変換できない
 
 #### リストを配列に変換
 * String リスト
