@@ -131,7 +131,16 @@ Arrays.parallelSort(arr);
 Arrays.sort(arr, a, b);
 
 ### ソート、逆順
-Arrays.sort(li, Comparator.reverseOrder());
+Arrays.sort(li, Comparator.reverseOrder()); ※Integer[]など非プリミティブ型に対応  
+Arrays.sort(li, Collections.reverseOrder()); ※Integer[]など非プリミティブ型に対応  
+プリミティブ型：
+```Java
+li = Arrays.stream(li)
+        .boxed()
+        .sorted(Collections.reverseOrder())
+        .mapToInt(Integer::intValue)
+        .toArray();
+```
 
 ### ソートしない、逆順
 Collections.reverse(li); 
