@@ -17,6 +17,77 @@ Java勉強中です！
 9. C#_Queue
 10. C#_LINQ
 
+***************************************************************************
+【C#手引き】
+```
+System.Object
+├── 基本データ型
+│   ├── System.Int32 (int)【整数】
+│   ├── System.Double (double)【小数】
+│   ├── System.String (string)【文字列】
+│   ├── System.Boolean (bool)【論理値: true/false】
+│   ├── System.Char (char)【1文字】
+│   └── System.Decimal (decimal)【高精度小数】
+│
+├── クラスとオブジェクト【基本的な構造】
+│   ├── クラス定義
+│   │   ├── public class クラス名 { ... }
+│   │   └── コンストラクタ: public クラス名() { ... }
+│   ├── オブジェクト生成: var obj = new クラス名();
+│   └── 継承: public class 子クラス : 親クラス { ... }
+│
+├── 配列 (System.Array)
+│   ├── 1次元配列
+│   │   ├── int[] arr = { 1, 2, 3 };
+│   │   └── 操作: arr[0], arr.Length, Array.Sort(arr)
+│   ├── 多次元配列
+│   │   ├── int[,] arr2D = { { 1, 2 }, { 3, 4 } };
+│   │   └── 操作: arr2D[0, 1]
+│   └── ジャグ配列【行ごとに長さが異なる配列】
+│       └── int[][] jaggedArr = { new int[] { 1 }, new int[] { 2, 3 } };
+│
+├── コレクション (System.Collections.Generic)
+│   ├── List<T> (リスト型)
+│   │   ├── 宣言: var list = new List<int> { 1, 2, 3 };
+│   │   └── 操作: list.Add(4), list.Remove(2), list[0]
+│   ├── Dictionary<TKey, TValue> (辞書型)
+│   │   ├── 宣言: var dict = new Dictionary<string, int> { { "A", 1 }, { "B", 2 } };
+│   │   └── 操作: dict["A"], dict.ContainsKey("C")
+│   ├── Queue<T> (キュー型)
+│   │   ├── 宣言: var queue = new Queue<int>();
+│   │   └── 操作: queue.Enqueue(1), queue.Dequeue(), queue.Peek()
+│   └── Stack<T> (スタック型)
+│       ├── 宣言: var stack = new Stack<int>();
+│       └── 操作: stack.Push(1), stack.Pop(), stack.Peek()
+│
+├── LINQ (System.Linq)
+│   ├── 基本クエリ操作
+│   │   ├── フィルタ: arr.Where(x => x > 2)
+│   │   ├── ソート: arr.OrderBy(x => x)
+│   │   ├── 投影: arr.Select(x => x * 2)
+│   │   └── 集計: arr.Sum(), arr.Average()
+│   └── コレクションとの連携
+│       ├── Zip: arr1.Zip(arr2, (x, y) => x + y)
+│       ├── GroupBy: list.GroupBy(x => x % 2 == 0)
+│       └── ToList/ToArray: list.ToList(), list.ToArray()
+│
+├── 例外処理 (System.Exception)
+│   ├── try-catch-finally
+│   │   ├── try { ... } catch (Exception ex) { ... } finally { ... }
+│   │   └── 使用例: 数値変換時のエラー捕捉
+│   ├── 特定の例外
+│   │   ├── System.IO.IOException (入出力エラー)
+│   │   └── System.NullReferenceException (null参照エラー)
+│   └── 独自の例外クラス: class MyException : Exception { ... }
+│
+└── 非同期プログラミング (System.Threading.Tasks)
+    ├── async/await
+    │   ├── async Task メソッド名() { await 処理; }
+    │   └── 使用例: ファイル読み書き
+    └── Task.Run()
+        ├── 使用例: Task.Run(() => { ... });
+        └── 並列処理での負荷分散
+```
 
 ***************************************************************************
 【chatGPTの課題提案】
