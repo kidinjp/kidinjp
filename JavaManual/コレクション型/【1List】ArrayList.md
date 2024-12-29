@@ -93,7 +93,7 @@ li1.addAll(li2);
 ※ 前のリストにのみ追加を行う
 
 ### 二つのリストを指定された位置に結合
-li1.(インデックス, li2);  
+li1.addAll(インデックス, li2);  
 ※ 前のリストにのみ追加を行う  
 ※ 長さを超えたインデックスに追加しようとすると``エラーが起こる``
 
@@ -105,7 +105,7 @@ li.subList(fromIndex, toIndex);
 ArrayList<Integer> li2 = new ArrayList<>(li.subList(fromIndex, toIndex));
 ```
 
-※ clear()と合わせて利用することによって、指定範囲の内容を削除でき、[.reniveRange()](#範囲のインデックスを持つすべての要素をこのリストから削除fromindex-toindex)の代わりになれる
+※ clear()と合わせて利用することによって、指定範囲の内容を削除でき、[.removeRange()](#範囲のインデックスを持つすべての要素をこのリストから削除fromindex-toindex)の代わりになれる
 ```Java
 // 【li = 】の記述はいらない
 li.subList(fromIndex, toIndex).clear();
@@ -121,7 +121,7 @@ li.remove(Integer.valueOf(数値));
 ※ 特定数値/文字（列）がリスト内に存在しない場合、特に行うことはない上``エラー起らない``  
 
 ### 範囲のインデックスを持つすべての要素をこのリストから削除[fromIndex, toIndex)
-li.reniveRange(fromIndex, toIndex);  
+li.removeRange(fromIndex, toIndex);  
 ※ removeRange(int,int) has protected access in ArrayList該メソッドは保護されているので、通常使えない  
 ※ 代わりにsubListやclearを使うのをおすすめ
 
