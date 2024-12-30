@@ -15,7 +15,10 @@
       * [整数のビット表現における1のビットの数](#整数のビット表現における1のビットの数)
       * [ビット順を反転](#ビット順を反転)
       * [バイト順を反転](#バイト順を反転)
-      * [10進数から2進数への変換【String】](#10進数から2進数への変換string)
+      * [10進数から2進数への変換【string】](#10進数から2進数への変換string)
+      * [2進数から10進数への変換【int】](#2進数から10進数への変換int)
+      * [10進数から16進数への変換【string】](#10進数から16進数への変換string)
+      * [16進数から10進数への変換【int】](#16進数から10進数への変換int)
     * [2. よく使うビット運用](#2-よく使うビット運用)
       * [nは奇数か偶数かを判定【boolean】](#nは奇数か偶数かを判定boolean)
       * [nのi番目のビットが立っているか判定](#nのi番目のビットが立っているか判定)
@@ -37,6 +40,10 @@
       * [小数点切り上げ【double】](#小数点切り上げdouble)
       * [小数点切り捨て【double】](#小数点切り捨てdouble)
       * [四捨五入【long】](#四捨五入long)
+      * [小数点以下の桁数を指定する](#小数点以下の桁数を指定する)
+      * [桁区切りを含んだ数値の表示](#桁区切りを含んだ数値の表示)
+      * [指数表記](#指数表記)
+      * [整数を指定した桁数で表示](#整数を指定した桁数で表示)
       * [最も近い整数値を返す（偶数への丸めを行う）【double】](#最も近い整数値を返す偶数への丸めを行うdouble)
       * [ランダム【double】](#ランダムdouble)
     * [2. 三角関数](#2-三角関数)
@@ -174,8 +181,18 @@ Integer.reverseBytes(n);
 ※ 10の場合 ⇒ 00000000 00000000 00000000 00001010  
 　　 反転後 ⇒ 00001010 00000000 00000000 00000000
 
-#### 10進数から2進数への変換【String】
+#### 10進数から2進数への変換【string】
 Convert.ToString(n, 2)
+
+#### 2進数から10進数への変換【int】
+Convert.ToInt32(str, 2);
+
+#### 10進数から16進数への変換【string】
+Convert.ToString(n, 16);
+
+#### 16進数から10進数への変換【int】
+Convert.ToInt32(string1, 16)
+
 
 ### 2. よく使うビット運用
 #### nは奇数か偶数かを判定【boolean】
@@ -262,6 +279,38 @@ Math.Floor(n)
 
 #### 四捨五入【long】
 Math.Round(n);
+
+### 小数点以下の桁数を指定する
+n.ToString("F2");  
+※ F (Fixed-point)、$"F{x}"
+```C#
+double number = 123.456789;
+Console.WriteLine(number.ToString("F2"));  // 出力: 123.46
+```
+
+### 桁区切りを含んだ数値の表示
+n.ToString("N0");  
+※ N (Number)
+```C#
+int value = 1234567;
+Console.WriteLine(value.ToString("N0"));  // 出力: 1,234,567
+```
+
+### 指数表記
+n.ToString("E2");  
+※ E (Exponential): 
+```C#
+double exponent = 12345.6789;
+Console.WriteLine(exponent.ToString("E2"));  // 出力: 1.23E+004
+```
+
+### 整数を指定した桁数で表示
+n.ToString("D5");
+※ D (Decimal): 
+```C#
+int integer = 123;
+Console.WriteLine(integer.ToString("D5"));  // 出力: 00123
+```
 
 #### 最も近い整数値を返す（偶数への丸めを行う）【double】
 Math.Round(n, `MidpointRounding.ToEven`);  
