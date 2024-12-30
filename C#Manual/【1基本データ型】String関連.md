@@ -7,9 +7,9 @@
   * [文字の長さ](#文字の長さ)
   * [文字列を最後尾に追加する](#文字列を最後尾に追加する)
   * [文字列を指定位置に追加する](#文字列を指定位置に追加する)
-  * [指定位置の文字を消す\[a\]](#指定位置の文字を消すa)
   * [指定位置範囲の文字列を消す\[a, b\)](#指定位置範囲の文字列を消すa-b)
   * [指定位置の文字を切り出す\[a\] 【char】](#指定位置の文字を切り出すa-char)
+  * [指定位置の文字を他位置の文字と入れ替える](#指定位置の文字を他位置の文字と入れ替える)
   * [指定位置範囲の文字列を切り出す\[a, b\)](#指定位置範囲の文字列を切り出すa-b)
   * [文字列を一個ずつ取り出す方法（配列化）](#文字列を一個ずつ取り出す方法配列化)
   * [指定文字列/charの位置を割り出す（最初に見つけた位置）](#指定文字列charの位置を割り出す最初に見つけた位置)
@@ -92,6 +92,13 @@ sb`.Remove(`n`, `2`)`;
 s`[`n`]`;  
 sb`[`n`]`;
 
+### 指定位置の文字を他位置の文字と入れ替える
+```C#
+char[] charArray = S.ToCharArray();
+charArray[p] = t;
+S = new string(charArray);
+```
+
 ### 指定位置範囲の文字列を切り出す\[a, b\)
 s`.Substring(`n`, `n + 2`)`;  
 sb`.ToString().Substring(`n`, `n + 2`)`;  
@@ -158,9 +165,22 @@ s`.Length` == 0;
 sb`.Length` == 0;
 
 ### 文字列を逆順にする
-new string(s`.Reverse().ToArray()`);  
-new StringBuilder(new string(sb.ToString()`.Reverse().ToArray()`));  
-※ `using System.Linq;`を使う
+new string(s`.Reverse().ToArray()`); または  
+※ `using System.Linq;`を使う  
+
+new StringBuilder(new string(sb.ToString()`.Reverse().ToArray()`)); または  
+※ `using System.Linq;`を使う  
+※ `using System.Text;`を使う  
+
+配列を利用する
+```C#
+string S = "ABC";
+char[] charArray = S.ToCharArray();
+Array.Reverse(charArray);
+S = new string(charArray);
+Console.WriteLine(S);
+```
+
 
 ### StringBuilder を string にする
 String sb_s = sb`.ToString()`;
