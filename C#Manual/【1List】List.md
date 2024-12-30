@@ -49,6 +49,7 @@
   * [リストの初期化＿連続した値](#リストの初期化＿連続した値)
   * [スレッドセーフなコレクションの生成](#スレッドセーフなコレクションの生成)
   * [ユニークな要素の抽出](#ユニークな要素の抽出)
+  * [LINQの応用](#linqの応用)
   * [全出力](#全出力)
 
 ***************************************************************************
@@ -373,6 +374,19 @@ var uniqueList = new HashSet<int>(li).ToList();
 
 // LINQを使用
 var uniqueList = li.Distinct().ToList();
+```
+
+### LINQの応用
+* ソート利用
+```C#
+List<Person> sortedPeople = people
+    .OrderBy(p => p.Height)　　　//昇順でソート
+    .ThenByDescending(p => p.BirthMonth)　　//降順でソート
+    .ThenBy(p => p.Name)　　　　// 名前で昇順ソート
+    .ToList();　　　　　　　　　//ソートされた結果を新しい List<Person> オブジェクトとして返す
+
+// ToList() メソッドは、LINQ クエリ結果を新しいリストとして取得するためのメソッド。
+// ソートされた結果を新しいリストとして取得している
 ```
 
 ### 全出力
