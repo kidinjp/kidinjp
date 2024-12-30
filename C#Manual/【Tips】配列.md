@@ -272,6 +272,12 @@ for (int i = 0; i < arr.GetLength(0); i++) // 行の数
 ### 特定の文字列で元の文字列を分割する
 string[] li = 文字列.Split(" ");  
 ※ 【1, 2, 3】に対して【, 】を分割すると⇒【1】【2】【3】となる
+```C#
+char[] delimiterChars = { ' ', '/', ':' };
+string[] words = Console.ReadLine().Split(delimiterChars);
+// もしくは
+string[] words = Console.ReadLine().Split( ' ', '/', ':' ); 
+```
 
 ### 文字をchar配列に一文字ずつを入れる
 char[] charArray = s.ToCharArray();
