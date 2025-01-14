@@ -328,7 +328,18 @@ System.out.println(Math.rint(5.5));  // 出力: 6.0
 #### ランダム【double】
 Random random = new Random();  
 random.NextDouble(); ※ 0 <= random < 1  
-random.Next(50, 100); ※ 50 <= random < 100
+random.Next(50, 100); ※ 50 <= random < 100。\[a, b\)  
+
+Java の Random との比較  
+| 特徴 | C#(Random) | Java(java.util.Random) |
+| --- | --- | --- |
+| スレッドの安全性 | 非スレッドセーフ | 非スレッドセーフ |
+| シードのデフォルト | システム時刻を使用 | システム時刻に基づく |
+| 乱数範囲の指定 | `Next(min, max)`<br>`[min, max)` | `nextInt(bound)`<br>`[0, bound)` |
+| 小数乱数の生成 | `NextDouble()`<br>`[0.0, 1.0)` | `nextDouble()`<br>`[0.0, 1.0)` |
+| バイト配列の乱数格納 | `NextBytes(byte[])`が提供される | バイト配列に乱数を格納するメソッドなし |
+| 内部実装 | 線形合同法（LCG） | 線形合同法（LCG） |
+| 暗号論的乱数生成 | `Random`ではサポートなし | 別途`SecureRandom`クラスを使用 |
 
 ### 2. 三角関数
 下記内容の大半はラジアン（radians、弳）で指定する必要がある。  
