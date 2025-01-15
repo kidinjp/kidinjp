@@ -6,157 +6,38 @@ Java勉強中です！
 
 ***************************************************************************
 【今後の課題】
-1. アルゴリズム_随時更新
-2. C#_配列
-3. C#_数字関連（decimalも）
-4. C#_リスト
-5. C#_辞書
-6. C#_クラス
-7. C#_例外処理
-8. C#_Stack
-9. C#_Queue
-10. C#_LINQ
-
-***************************************************************************
-【C#手引き】
-```
-System.Object
-├── 基本データ型
-│   ├── System.Int32 (int)【整数】
-│   ├── System.Double (double)【小数】
-│   ├── System.String (string)【文字列】
-│   ├── System.Boolean (bool)【論理値: true/false】
-│   ├── System.Char (char)【1文字】
-│   └── System.Decimal (decimal)【高精度小数】
-│
-├── クラスとオブジェクト【基本的な構造】
-│   ├── クラス定義
-│   │   ├── public class クラス名 { ... }
-│   │   └── コンストラクタ: public クラス名() { ... }
-│   ├── オブジェクト生成: var obj = new クラス名();
-│   └── 継承: public class 子クラス : 親クラス { ... }
-│
-├── 配列 (System.Array)
-│   ├── 1次元配列
-│   │   ├── int[] arr = { 1, 2, 3 };
-│   │   └── 操作: arr[0], arr.Length, Array.Sort(arr)
-│   ├── 多次元配列
-│   │   ├── int[,] arr2D = { { 1, 2 }, { 3, 4 } };
-│   │   └── 操作: arr2D[0, 1]
-│   └── ジャグ配列【行ごとに長さが異なる配列】
-│       └── int[][] jaggedArr = { new int[] { 1 }, new int[] { 2, 3 } };
-│
-├── コレクション (System.Collections.Generic)
-│   ├── List<T> (リスト型)
-│   │   ├── 宣言: var list = new List<int> { 1, 2, 3 };
-│   │   └── 操作: list.Add(4), list.Remove(2), list[0]
-│   ├── Dictionary<TKey, TValue> (辞書型)
-│   │   ├── 宣言: var dict = new Dictionary<string, int> { { "A", 1 }, { "B", 2 } };
-│   │   └── 操作: dict["A"], dict.ContainsKey("C")
-│   ├── Queue<T> (キュー型)
-│   │   ├── 宣言: var queue = new Queue<int>();
-│   │   └── 操作: queue.Enqueue(1), queue.Dequeue(), queue.Peek()
-│   └── Stack<T> (スタック型)
-│       ├── 宣言: var stack = new Stack<int>();
-│       └── 操作: stack.Push(1), stack.Pop(), stack.Peek()
-│
-├── LINQ (System.Linq)
-│   ├── 基本クエリ操作
-│   │   ├── フィルタ: arr.Where(x => x > 2)
-│   │   ├── ソート: arr.OrderBy(x => x)
-│   │   ├── 投影: arr.Select(x => x * 2)
-│   │   └── 集計: arr.Sum(), arr.Average()
-│   └── コレクションとの連携
-│       ├── Zip: arr1.Zip(arr2, (x, y) => x + y)
-│       ├── GroupBy: list.GroupBy(x => x % 2 == 0)
-│       └── ToList/ToArray: list.ToList(), list.ToArray()
-│
-├── 例外処理 (System.Exception)
-│   ├── try-catch-finally
-│   │   ├── try { ... } catch (Exception ex) { ... } finally { ... }
-│   │   └── 使用例: 数値変換時のエラー捕捉
-│   ├── 特定の例外
-│   │   ├── System.IO.IOException (入出力エラー)
-│   │   └── System.NullReferenceException (null参照エラー)
-│   └── 独自の例外クラス: class MyException : Exception { ... }
-│
-└── 非同期プログラミング (System.Threading.Tasks)
-    ├── async/await
-    │   ├── async Task メソッド名() { await 処理; }
-    │   └── 使用例: ファイル読み書き
-    └── Task.Run()
-        ├── 使用例: Task.Run(() => { ... });
-        └── 並列処理での負荷分散
-```
-
-***************************************************************************
-【chatGPTの課題提案】
-【提案】追加する項目
-* **Java基礎関連**
-1. オブジェクト指向プログラミング（OOP）
-    * クラスとオブジェクトの違い
-    * 継承、ポリモーフィズム（多態性）、カプセル化
-    * 抽象クラスとインターフェースの使い分け
-2. 静的メンバーと非静的メンバー
-    * staticの使い方
-    * インスタンスメソッド vs. 静的メソッド
-3. Javaメモリ管理とGC（ガベージコレクション）
-    * ヒープ領域とスタック領域
-    * 弱参照、強参照、ソフト参照、ファイナライザ
-
-* **コレクションAPI拡張**
-1. Immutableコレクション
-    * List.of, Set.of, Map.ofなど
-2. コレクションの操作
-    * Collectionsクラス（ソート、フィルタリング、シャッフル）
-3. Concurrent Collections（並列処理対応）
-    * ConcurrentHashMap, CopyOnWriteArrayList
-* **Javaの応用的なトピック**
-1. スレッドと並列処理
-    * Runnable, Callable, ExecutorService
-    * ForkJoinPool, CompletableFuture  
-2. Java 8以降の新機能
-    * ラムダ式とメソッド参照
-    * Stream APIの高度な使い方
-3. モジュールシステム
-    * module-info.javaの作成方法
-    * Java 9以降のモジュール化の考え方
-4. ファイルI/Oとシリアライズ
-    * java.nio.fileパッケージ
-    * ObjectInputStream, ObjectOutputStream
-
-* **実践的なTips**
-1. デザインパターン
-    * Singleton, Factory, Builder, Observerなどの基本的なパターン
-2. テストコード
-    * JUnitによる単体テスト
-    * Mocking（Mockitoなど）
-3. デバッグとロギング
-    * System.out.println以外のデバッグ方法
-    * Loggerクラスの使い方
-4. Javaでのデータ構造とアルゴリズム
-    * リスト、スタック、キュー、ヒープ、グラフ、ツリーの実装例
-* **その他**
-1. バージョン間の変更点
-    * Java 8とJava 17の主要な違い（LTS間比較）
-2. パフォーマンス最適化
-    * メモリ使用量削減テクニック
-    * 効率的なアルゴリズムとデータ構造の選択
-3. セキュリティ
-    * Javaでの暗号化/復号化（Cipherクラスなど）
-    * SQLインジェクション対策
-4. ネットワークプログラミング
-    * ソケット通信、HTTP通信（HttpClient）
-5. アプリケーション開発の基礎
-    * JavaFXを使ったGUIアプリケーションの作成
-    * Spring Frameworkの基本  
-
-【まとめ】これを追加する意義  
-これらを補足することで、Javaの基本から応用までをカバーする充実したメモになります。  
-特に、自分が今後進みたい方向（例えば、業務系システムやゲーム開発）に応じて、重要な項目を優先的に追加すると良いでしょう。
+* アルゴリズム_随時更新
+1. SQL
+2. HTML/CSS
+3. python 3
 
 ***************************************************************************
 【ファイル作成ログ】
+【C#Manual】
+* 2025/01/16、0_今後のC#課題.md
+* 2025/01/15、【07日時関連】DateTime.md
+* 2025/01/14、【00Tips】Systemについて.md
+* 2025/01/11、【03コレクション型】HashSetとSortedSet(一意).md
+* 2025/01/09、【00Tips】読み込みインポート.md
+* 2025/01/08、【09LINQ】LINQ.md
+* 2025/01/07、【03コレクション型】Stack.md
+* 2025/01/06、【03コレクション型】Queue.md
+* 2025/01/05、【12例外処理】例外処理.md
+* 2025/01/04、【05クラスとオブジェクト】クラスとオブジェクトについて.md
+* 2025/01/04、【03コレクション型】Dictionary.md
+* 2025/01/02、【01基本データ型】補完文字列.md
+* 2024/12/31、【01基本データ型】正規表現.md
+* 2024/12/30、【03コレクション型】List.md
+* 2024/12/28、0_初心者手引き.md
+* 2024/12/27、【02配列】配列.md
+* 2024/12/25、【01基本データ型】数字関連_Mathクラス.md
+* 2024/12/24、【01基本データ型】String関連.md
+* 2024/12/24、【00Tips】C#基礎.md
+
+【JavaManual】
+* 2025/01/16、0_今後のJava課題.md
+* 2024/12/18、アルゴリズム_むずむずオブザイヤー.md
+* 2024/11/27、アルゴリズム.md
 * 2024/11/26、Date and Time API.md
 * 2024/11/24、アノテーション.md
 * 2024/11/21、例外処理.md
