@@ -57,6 +57,9 @@ HTML_CSSManual/0_基礎概念および基本操作.md
     * 基本的に、1ページにつき1ファイル
 * 例: **見出し**、**段落**、**リスト**、**リンク**、**画像**
 * [公式ドキュメント](https://developer.mozilla.org/ja/docs/Web/HTML)
+* [HTMLの規範](https://html.spec.whatwg.org/multipage/)
+* [CSSの規範](https://www.w3.org/Style/CES/)  
+
 ```html
 <!DOCTYPE html>
 <html lang="ja">
