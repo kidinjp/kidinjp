@@ -52,6 +52,8 @@ class Program
     static void Main(string[] args)
     {
         string[] arrayString = Console.ReadLine().Split(' ');
+        // char[] 、1つの文字列を1文字ずつ収納する場合
+        char[] charArray = Console.ReadLine().ToCharArray();
         int[] arrayInt = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
         long[] arrayLong = Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
         double[] arrayDouble = Console.ReadLine().Split(' ').Select(double.Parse).ToArray();
