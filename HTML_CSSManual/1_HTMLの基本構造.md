@@ -227,6 +227,7 @@ B
   * [パス](#パス)に「**絶対パス**」と「**相対パス**」がある
 * alt（alternative text）属性：画像が表示できない場合に表示されるテキスト
   * 視覚障害者のためにスクリーンリーダーがこのテキストを読み上げるので、意味のある説明を入れるのが望ましい
+  * Webアクセシビリティーを意識した書き方
 
 ```html
 <img class="img-responsive center-block"　src="images/duke_mascot.png" alt="Duke">
