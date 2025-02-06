@@ -5,33 +5,34 @@
   * [\<head>～\</head>](#headhead)
     * [\<meta charset="UTF-8">](#meta-charsetutf-8)
     * [\<title>～\</title>](#titletitle)
-    * [\<link>~\</link>](#linklink)
     * [\<script>~\</script>](#scriptscript)
     * [\<style>～\</style>](#stylestyle)
   * [\<body>～\</body>](#bodybody)
 * [HTMLの主なタグ](#htmlの主なタグ)
+  * [空要素](#空要素)
+    * [\<br>、改行](#br改行)
+    * [\<img>、画像表示](#img画像表示)
+      * [パス](#パス)
+    * [\<link>、外部のCSSファイルやフォントをHTMLにリンクする](#link外部のcssファイルやフォントをhtmlにリンクする)
   * [\<h>、見出し（ヘッディング）](#h見出しヘッディング)
   * [\<p>、段落](#p段落)
-  * [\<br>、改行](#br改行)
   * [\<strong>、より強い強調](#strongより強い強調)
   * [\<em>、強調斜体](#em強調斜体)
   * [\<mark>、ハイライトマーク](#markハイライトマーク)
   * [\<i>、斜体](#i斜体)
   * [\<b>、太字](#b太字)
-  * [\<img>、画像表示](#img画像表示)
-    * [パス](#パス)
   * [\<a>、リンク](#aリンク)
+  * [\<address>、アドレス](#addressアドレス)
   * [\<ul>/\<ol>/\<li>、リスト](#ulolliリスト)
   * [\<dl>/\<dt>/\<dd>、定義リスト](#dldtdd定義リスト)
   * [ナビゲーションバー](#ナビゲーションバー)
-    * [\<table>、テーブル](#tableテーブル)
+  * [\<table>、テーブル](#tableテーブル)
     * [テーブルの幅調整](#テーブルの幅調整)
     * [セルの結合 colspan、rowspan(改行br)](l#セルの結合-colspanrowspan改行br)
     * [表作りの実例【数独】](#表作りの実例数独)
   * [\<form>、フォーム](#formフォーム)
     * [paizaの実例](#paizaの実例)
   * [その他部品](#その他部品)
-    * [\<link>、外部のCSSファイルやフォントをHTMLにリンクする](#link外部のcssファイルやフォントをhtmlにリンクする)
     * [\<blockquote>、引用文](#blockquote引用文)
     * [\<small>、著作権表記や法的表記](#small著作権表記や法的表記)
     * [\<span>、意味を持たないインライン要素](#span意味を持たないインライン要素)
@@ -178,15 +179,6 @@ HTML文章は以下の要素で構造される：
 * ブラウザの**タブ**や（ブックマークした時などの）ページタイトルとして表示される
 * 例: `<title>`My Website`</title>`
 
-#### \<link>~\</link>
-* rel属性：リンクタイプを指定し、現在の HTML文書 から見てどのような関係をもつものであるのかを説明する
-* CSSをリンクする場合スタイルを適用する。適用順で上書きする
-  * 例: `<link rel="stylesheet" href="styles.css">`
-* ファビコン（タブに表示されるアイコン）
-  * 例: `<link rel="icon" href="favicon.ico">`
-* フォントやアイコンの読み込み(例はGoogle Fonts のフォント)
-  * 例: `<link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Roboto&display=swap">`
-
 #### \<script>~\</script>
 * JavaScript（スクリプトの読み込み）
 * 例: `<script src="script.js" defer></script>`
@@ -224,13 +216,75 @@ HTML文章は以下の要素で構造される：
     * `shift` + `alt` + `A`、選択した部分に対してコメントアウト
     * `ctrl` + `/`、選択した行ごとに対してコメントアウト
 
-| タグ | 意味 |
-| --- | --- |
-| `<h1>`~`<h6>` | 見出しタグ<br>大見出しから小見出しまで |
-| `<p>` | 段落 |
-| `<a>` | リンク |
-| `<img>` | 画像 |
-| `<ul>`/ `<ol>`/ `<li>` | 箇条書きリスト<br>順序付きリスト |
+### 空要素
+内容を持たない要素のことを空要素という  
+終了タグは必要ないタグ
+
+| タグ | 主な用途 | 例 |
+| --- | --- | --- |
+| `<meta>` | ページのメタ情報を設定 | `<meta charset="UTF-8">` |
+| `<br>` | 改行を入れる | 行の途中で`<br>`改行する |
+| `<hr>` | 水平線を引く（区切り線） | `<hr>` |
+| `<img>` | 画像を表示する | `<img src="image.jpg" alt="説明">` |
+| `<input>` | フォームの入力欄 | `<input type="text" placeholder="名前">` |
+| `<link>` | CSSファイルなどを関連付ける | `<link rel="stylesheet" href="style.css">` |
+| `<base>` | 基準となるURLを指定 | `<base href="https://example.com/">` |
+| `<col>` | 表の列のスタイルを指定 | `<col span="2" style="background-color:yellow;">` |
+| `<source>` | `<audio>` や `<video>` のメディアソースを指定 | `<source src="video.mp4" type="video/mp4">` |
+| `<track>` | `<video>` などの字幕を設定 | `<track src="subtitles.vtt" kind="subtitles">` |
+| `<wbr>` | 長い単語の途中で改行可能にする | 超長い単語`<wbr>`ここで改行できる |
+
+#### \<br>、改行
+A`<br>`B　⇒  
+A  
+B
+
+#### \<img>、画像表示
+`<img src =` "パス" `alt =`"ファイル名" `>`
+* タグは単独で使用
+* class属性(Bootstrap)：
+  * "img-responsive center-block"：画面中央に表示
+* src（source）属性：パスを指定する（画像がフォルダーにおいでの位置及び名前）
+  * 同一階層の画像ファイルであれば、ファイル名を指定する
+  * 階層が違う場合には、パス(絶対もしくは相対)で指定する
+  * [パス](#パス)に「**絶対パス**」と「**相対パス**」がある
+* alt（alternative text）属性：画像が表示できない場合に表示されるテキスト
+  * 視覚障害者のためにスクリーンリーダーがこのテキストを読み上げるので、意味のある説明を入れるのが望ましい
+  * Webアクセシビリティーを意識した書き方
+
+```html
+<img class="img-responsive center-block"　src="images/duke_mascot.png" alt="Duke">
+<img src="images/duke_model.jpg" alt="Duke 3D">
+```
+
+##### パス
+* ファイルパスとは、HTMLやCSS、画像などのファイルの場所を指定するためのもの
+* webページのリンクや画像ファイルはパスで指定する
+
+* 絶対パス：
+  * ウェブ全体の中での「正確な場所」を指定するパス。URL全体を指定するため、どこからアクセスしてもその場所にリンクできる
+    * `<a href="https://???/index.html">`こちらをクリック`</a>` の中の**完全なURL**のことを指す
+* 相対パス：
+  * 今のHTMLファイルが置かれている**位置**（フォルダ）を基準に、目的のファイルがどこにあるかを指定するパス
+  * ページ間でのリンクや画像の参照を簡潔に行うことができる
+    * `<a href="about.html">Aboutページ`</a>`　⇒　**同じフォルダ**から指定
+    * `<img src="images/pic.jpg" alt="写真"`>`　⇒　**サブフォルダ**にアクセス
+    * `<a href="../index.html">トップページに戻る</a>　⇒　**親フォルダー**へ移動 
+
+#### \<link>、外部のCSSファイルやフォントをHTMLにリンクする
+* rel属性：リンクタイプを指定し、現在の HTML文書 から見てどのような関係をもつものであるのかを説明する
+* CSSをリンクする場合スタイルを適用する。適用順で上書きする
+  * 例: `<link rel="stylesheet" href="styles.css">`
+* ファビコン（タブに表示されるアイコン）
+  * 例: `<link rel="icon" href="favicon.ico">`
+* フォントやアイコンの読み込み(例はGoogle Fonts のフォント)
+  * 例: `<link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Roboto&display=swap">`
+* href属性: パス  
+
+```html
+<!-- CSSファイルを読み込む -->
+<link rel="stylesheet" href="styles.css">
+```
 
 ### \<h>、見出し（ヘッディング）
 `<h1>見出し１</h1>`
@@ -243,11 +297,6 @@ HTML文章は以下の要素で構造される：
 `<p>`ひとつめの段落です。`</p>`
 `<p>`ふたつめの段落です。`</p>`  
 * `class="lead"`：強調して表示する。leadは文書の内容をまとめた要約文(Bootstrap)
-
-### \<br>、改行
-A`<br>`B　⇒  
-A  
-B
 
 ### \<strong>、より強い強調
 `<strong>`文字`</string>`  
@@ -270,38 +319,6 @@ B
 ### \<b>、太字
 `<b>`文字`</b>`  
 * 商品名など
-
-### \<img>、画像表示
-`<img src =` "パス" `alt =`"ファイル名" `>`
-* タグは単独で使用
-* class属性(Bootstrap)：
-  * "img-responsive center-block"：画面中央に表示
-* src（source）属性：パスを指定する（画像がフォルダーにおいでの位置及び名前）
-  * 同一階層の画像ファイルであれば、ファイル名を指定する
-  * 階層が違う場合には、パス(絶対もしくは相対)で指定する
-  * [パス](#パス)に「**絶対パス**」と「**相対パス**」がある
-* alt（alternative text）属性：画像が表示できない場合に表示されるテキスト
-  * 視覚障害者のためにスクリーンリーダーがこのテキストを読み上げるので、意味のある説明を入れるのが望ましい
-  * Webアクセシビリティーを意識した書き方
-
-```html
-<img class="img-responsive center-block"　src="images/duke_mascot.png" alt="Duke">
-<img src="images/duke_model.jpg" alt="Duke 3D">
-```
-
-#### パス
-* ファイルパスとは、HTMLやCSS、画像などのファイルの場所を指定するためのもの
-* webページのリンクや画像ファイルはパスで指定する
-
-* 絶対パス：
-  * ウェブ全体の中での「正確な場所」を指定するパス。URL全体を指定するため、どこからアクセスしてもその場所にリンクできる
-    * `<a href="https://???/index.html">`こちらをクリック`</a>` の中の**完全なURL**のことを指す
-* 相対パス：
-  * 今のHTMLファイルが置かれている**位置**（フォルダ）を基準に、目的のファイルがどこにあるかを指定するパス
-  * ページ間でのリンクや画像の参照を簡潔に行うことができる
-    * `<a href="about.html">Aboutページ`</a>`　⇒　**同じフォルダ**から指定
-    * `<img src="images/pic.jpg" alt="写真"`>`　⇒　**サブフォルダ**にアクセス
-    * `<a href="../index.html">トップページに戻る</a>　⇒　**親フォルダー**へ移動 
 
 ### \<a>、リンク
 `<a href="">　</a>`  
@@ -859,14 +876,6 @@ HTML:
 ```
 
 ### その他部品
-#### \<link>、外部のCSSファイルやフォントをHTMLにリンクする
-* rel属性: `rel="stylesheet"`はリンク先がスタイルシートであることをす
-* href属性: パス  
-```html
-<!-- CSSファイルを読み込む -->
-<link rel="stylesheet" href="styles.css">
-```
-
 #### \<blockquote>、引用文
 引用元を示したい場合は<cite>を併用する  
 <blockquote>
