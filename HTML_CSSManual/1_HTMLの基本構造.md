@@ -5,18 +5,26 @@
   * [\<head>～\</head>](#headhead)
     * [\<meta charset="UTF-8">](#meta-charsetutf-8)
     * [\<title>～\</title>](#titletitle)
+    * [\<link>~\</link>](#linklink)
+    * [\<script>~\</script>](#scriptscript)
     * [\<style>～\</style>](#stylestyle)
   * [\<body>～\</body>](#bodybody)
 * [HTMLの主なタグ](#htmlの主なタグ)
   * [\<h>、見出し（ヘッディング）](#h見出しヘッディング)
   * [\<p>、段落](#p段落)
   * [\<br>、改行](#br改行)
-  * [\<strong>、太字](#strong太字)
+  * [\<strong>、より強い強調](#strongより強い強調)
+  * [\<em>、強調斜体](#em強調斜体)
+  * [\<mark>、ハイライトマーク](#markハイライトマーク)
+  * [\<i>、斜体](#i斜体)
+  * [\<b>、太字](#b太字)
   * [\<img>、画像表示](#img画像表示)
     * [パス](#パス)
   * [\<a>、リンク](#aリンク)
   * [\<ul>/\<ol>/\<li>、リスト](#ulolliリスト)
+  * [\<dl>/\<dt>/\<dd>、定義リスト](#dldtdd定義リスト)
   * [ナビゲーションバー](#ナビゲーションバー)
+    * [\<table>、テーブル](#tableテーブル)
     * [テーブルの幅調整](#テーブルの幅調整)
     * [セルの結合 colspan、rowspan(改行br)](l#セルの結合-colspanrowspan改行br)
     * [表作りの実例【数独】](#表作りの実例数独)
@@ -39,6 +47,8 @@
     * [\<aside>、補足情報や関連リンク](#aside補足情報や関連リンク)
     * [\<footer>、ページ下部のフッタ要素](#footerページ下部のフッタ要素)
     * [\<div>、意味を持たないブロック要素](#div意味を持たないブロック要素)
+    * [\<time>、時間](#time時間)
+    * [\<figure>\<figcaption>、図表ソースコードの記述部](#figurefigcaption図表ソースコードの記述部)
 
 ***************************************************************************
 ## HTMLの基本構造
@@ -133,7 +143,7 @@ HTML文章は以下の要素で構造される：
 * ブラウザには表示されない
 
 #### \<meta charset="UTF-8">
-* 文字コードを指定する
+* 主に文字コードを指定する
 * metaはメタ要素のことで、文字コード以外にも多くの要素がある
 
 * meta要素について
@@ -141,8 +151,19 @@ HTML文章は以下の要素で構造される：
   * Webページのメタデータを検索エンジンやブラウザに認識させるためのHTMLタグ
   * Webページの**概要**・**文字コード**・**キーワード**などHTML文書の**基本情報**を記述する
   * ※メタデータとは、データについてのデータを表し、そのデータの属性や関連する情報を記述した情報をいう
+  * ページ説明（検索エンジン向け）
+    * 例: `<meta name="description" content="This is a sample website.">`
+  * [レスポンシブ対応](レスポンシブウェブデザインについて.md)（スマホでの表示調整）
+    * 例: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+    * width=device-width⇒装置の幅に合わせる
+    * initial-scale⇒イニシャルスケール（拡大率x1.0倍との意味）
+    * CSSでは `@media screen and (max-width: 640px){}`などで調整する
+  * OGP（SNSでの表示設定）
+    * 例: `<meta property="og:image" content="thumbnail.jpg">`
+　* その他のメタ情報（著者や著作権など）
+    * 例: `<meta name="author" content="Your Name">`
 
-* 文字コードについて
+* 文字コードについて(charset="UTF-8"の部分)
   * コンピュータ上で文字列を表現するために用いられる表示方法で、多くの規格が存在する
   * 以前はWindowsで用いられたShift_JISが主流であったが、iOSでは文字化けするために現在では世界中で広く使われているUTF-8が主流となっている 
 
@@ -154,7 +175,21 @@ HTML文章は以下の要素で構造される：
 
 #### \<title>～\</title>
 * ページのタイトルを記述する
-* ブラウザのタブや（ブックマークした時などの）ページタイトルとして表示される
+* ブラウザの**タブ**や（ブックマークした時などの）ページタイトルとして表示される
+* 例: `<title>`My Website`</title>`
+
+#### \<link>~\</link>
+* rel属性：リンクタイプを指定し、現在の HTML文書 から見てどのような関係をもつものであるのかを説明する
+* CSSをリンクする場合スタイルを適用する。適用順で上書きする
+  * 例: `<link rel="stylesheet" href="styles.css">`
+* ファビコン（タブに表示されるアイコン）
+  * 例: `<link rel="icon" href="favicon.ico">`
+* フォントやアイコンの読み込み(例はGoogle Fonts のフォント)
+  * 例: `<link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Roboto&display=swap">`
+
+#### \<script>~\</script>
+* JavaScript（スクリプトの読み込み）
+* 例: `<script src="script.js" defer></script>`
 
 #### \<style>～\</style>
 * 主にCSSの部分
@@ -185,6 +220,9 @@ HTML文章は以下の要素で構造される：
   * 属性はタグ名の後にスペースを空けてから記述し、値はダブルクオーテーションで囲む
 * コメントアウト
   * `<!-- 内容。コードへのコメントアウトと改行も可-->`
+  * Visual Studio Codeでの操作：
+    * `shift` + `alt` + `A`、選択した部分に対してコメントアウト
+    * `ctrl` + `/`、選択した行ごとに対してコメントアウト
 
 | タグ | 意味 |
 | --- | --- |
@@ -211,10 +249,27 @@ A`<br>`B　⇒
 A  
 B
 
-### \<strong>、太字
-`<strong>`太字`</string>`  
-・強い重要性要素
-・一般的に太字で表示される
+### \<strong>、より強い強調
+`<strong>`文字`</string>`  
+* 強い重要性要素
+* 一般的に太字で表示される
+* 警告
+
+### \<em>、強調斜体
+`<em>`文字`</em>`  
+
+### \<mark>、ハイライトマーク
+`<mark>`文字`</mark>`  
+* 検索対象にマークするなど
+* 一番目立つ
+
+### \<i>、斜体
+`<i>`文字`</i>`  
+* 心の声、特殊用語など
+
+### \<b>、太字
+`<b>`文字`</b>`  
+* 商品名など
 
 ### \<img>、画像表示
 `<img src =` "パス" `alt =`"ファイル名" `>`
@@ -239,11 +294,11 @@ B
 * webページのリンクや画像ファイルはパスで指定する
 
 * 絶対パス：
-  * ウェブ全体の中での「正確な場所」を指定するパスです。URL全体を指定するため、どこからアクセスしてもその場所にリンクできます。
+  * ウェブ全体の中での「正確な場所」を指定するパス。URL全体を指定するため、どこからアクセスしてもその場所にリンクできる
     * `<a href="https://???/index.html">`こちらをクリック`</a>` の中の**完全なURL**のことを指す
 * 相対パス：
   * 今のHTMLファイルが置かれている**位置**（フォルダ）を基準に、目的のファイルがどこにあるかを指定するパス
-  * ページ間でのリンクや画像の参照を簡潔に行うことができます。
+  * ページ間でのリンクや画像の参照を簡潔に行うことができる
     * `<a href="about.html">Aboutページ`</a>`　⇒　**同じフォルダ**から指定
     * `<img src="images/pic.jpg" alt="写真"`>`　⇒　**サブフォルダ**にアクセス
     * `<a href="../index.html">トップページに戻る</a>　⇒　**親フォルダー**へ移動 
@@ -255,6 +310,7 @@ B
   * 外部サイトへのリンクは絶対パスで指定し、サイト内リンクは基本的に相対パスで指定する
   * 【#見出しタイトル】を指定すると同ページの該見出しの位置に飛ぶ
   * 【#】のみを指定すると、該ページのトップ（一番上）まで飛ぶ
+  * "tel:電話番号"のような書き方もある
 * target属性：
   * 省略すると**同ウィンドウ**で開く
   * "_blank"：**別ウィンドウ**で開く
@@ -274,7 +330,14 @@ B
 <a href="リンク先">
     <img src="画像パス" alt="説明文">
 </a>
+
+<!-- 電話番号を貼る -->
+<a href="tel:080-xxxx-xxxx">080-xxxx-xxxx</a>
+
 ```
+
+### \<address>、アドレス
+`<address>`連絡先の電話・氏名・住所など`</address>`
 
 ### \<ul>/\<ol>/\<li>、リスト
 * \<ul>+\<li>：・との箇条書きや番号付きのリスト
@@ -303,6 +366,24 @@ B
   <li class="list-group-item">項目B</li>
   <li class="list-group-item">項目C</li>
 </ul>
+```
+
+### \<dl>/\<dt>/\<dd>、定義リスト
+* \<dl>：definition list、リスト全体を囲む
+* \<dt>：definition term、定義の項目名
+* \<dd>：definition description、該項目の内容、自動的に改行され、行高短くになる
+```html
+<dl>
+  <dt>名前：</dt><dd>ああああ</dd>
+  <dt>年齢：</dt><dd>3才</dd>
+</dl>
+
+<!--
+名前：
+  ああああ
+年齢：
+  3才
+ -->
 ```
 
 ### ナビゲーションバー
@@ -478,6 +559,69 @@ HTML:
 ```
 
 ### \<form>、フォーム
+基本のフォーム例、とりあえずこれ見れば多分わかる
+```html
+<form action="送信先ページ" method="post" name="テストフォーム">
+    <!-- 名前 -->
+    <div>
+        <label for="name">名前：</label>
+        <input type="text" id="name" name="name">
+    </div>
+
+    <!-- ニックネーム -->
+    <div>
+        <label for="nickname">ニックネーム：</label>
+        <input type="text" id="nickname" name="nickname" placeholder="3文字以上を入力してください">
+    </div>
+
+    <!-- 検索条件 -->
+    <div>
+        <label for="search">検索条件：</label>
+        <input type="search" id="search" name="search">
+    </div>
+
+    <!-- メールアドレス -->
+    <div>
+        <label for="email">メールアドレス：</label>
+        <input type="email" id="email" name="email">
+    </div>
+
+    <!-- 電話番号 -->
+    <div>
+        <label for="tel">電話番号：</label>
+        <input type="tel" id="tel" name="tel">
+    </div>
+
+    <!-- URL -->
+    <div>
+        <label for="url">URL：</label>
+        <input type="url" id="url" name="url">
+    </div>
+
+    <!-- ラジオボタン（性別） -->
+    <div>
+        <p>性別：</p>
+        <label><input type="radio" name="gender" value="male"> 男性</label>
+        <label><input type="radio" name="gender" value="female"> 女性</label>
+        <label><input type="radio" name="gender" value="other"> その他</label>
+    </div>
+
+    <!-- チェックボックス（趣味） -->
+    <div>
+        <p>趣味：</p>
+        <label><input type="checkbox" name="hobby" value="sports"> スポーツ</label>
+        <label><input type="checkbox" name="hobby" value="music"> 音楽</label>
+        <label><input type="checkbox" name="hobby" value="reading"> 読書</label>
+        <label><input type="checkbox" name="hobby" value="gaming"> ゲーム</label>
+    </div>
+
+    <!-- 送信ボタン -->
+    <div>
+        <input type="submit" value="送信">
+    </div>
+</form>
+```
+
 * テキスト入力欄やボタンなどの部品を組み合わせてフォームを作成し、使用する部品は\<form>タグで囲んで配置する
 * なお、\<form>は入力・送信フォームを作成する際に使用する要素だが、実際にデータを受け渡しする処理はJavaサーブレットやPHPなどのプログラムと連携して動作する
 * \<from>:
@@ -486,7 +630,7 @@ HTML:
 ・・get：データをURLの一部として送信する（?page=3のような内容）
 ・・post：URLとは別にデータを送信する（パスワードなどのデータを取り扱う際はこっちを使おう）
   * name属性: フォームの名前を指定する
-  * \<label>: 入力欄の隣の見出し。フォーム部品と関連付けることができ、ラベルを含めた項目全体がクリック対象になる。（基本的にはすべてのフォーム要素にラベルを貼ることができる）
+  * \<label>: 入力欄の隣の見出し。フォーム部品と関連付けることができ、ラベルを含めた項目全体がクリック対象になる（基本的にはすべてのフォーム要素にラベルを貼ることができる）
     * 関連付けするフォーム部品のidを指定するためにはfor属性を使用する ※**対象部品はid属性で識別名を宣言する**
     * 同じ名前のラベルがある場合、最初に設定された同名前のラベルに飛ぶ
     * class属性: "col-sm-2 control-label"などを掛けてフォームラベルの広さを指定（Bootstrap）
@@ -805,10 +949,15 @@ CSSで一部分のみ装飾するときに使用する
 ```
 
 #### \<section>、1つのテーマに基づいたグループ化
+通常一個の`<h1>`~`<h6>`を囲む
 ```html
 <section>
   <h2>会社情報</h2>
   <p>私たちの会社は...。</p>
+</section>
+<section>
+  <h2>製品情報</h2>
+  <p>主な事業につきまして...。</p>
 </section>
 ```
 
@@ -823,6 +972,7 @@ CSSで一部分のみ装飾するときに使用する
 #### \<aside>、補足情報や関連リンク
 * 本文ではない補足情報
 * メインコンテンツとの関連性が低い情報を扱う
+* ブログでよく見かける使い方は、横欄にあるカテゴリー別でのリンクまとめ
 
 ```html
 <aside>
@@ -846,4 +996,32 @@ CSSで一部分のみ装飾するときに使用する
 <div class="container">
   <p>コンテンツをグループ化します。</p>
 </div>
+```
+
+#### \<time>、時間
+* xxxx-xx-xxTxx:xx:xx、日付の間には`-`、時間の間には`:`、更にそれらの間には'T'で繋ぐ
+* 省略した書き方も可
+  * 年、2025
+  * 月まで、2025-02
+  * 日付、02-01
+  * 日付、2025-02-01
+  * 時分、16:15
+  * 時分秒、16:15:35
+  * 日付と時分、2025-02-01T12:15
+  * 日付と時分秒、2025-02-01T03:12:15
+  * 日付と時間（時分秒，オフセット付き）、2012-04-23T16:15:35+09:00
+
+```html
+<time datetime="2025-01-01T12:00">2025-01-01 12:00</time>
+```
+
+#### \<figure>\<figcaption>、図表ソースコードの記述部
+* 本文の流れには直接影響を与えない、**独立とした写真**と定められてる
+* figure：形、図形など
+* figcaption：図キャプション
+```html
+<figure>
+  <img src="パス" width=100 height=100>
+  <figcaption>ああああの写真</figcaption>
+</figure>
 ```
