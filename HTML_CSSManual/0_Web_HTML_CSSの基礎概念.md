@@ -40,17 +40,23 @@
   * [HTML	Living	Standard](https://html.spec.whatwg.org/multipage/)
   * [W3C](https://www.w3.org/Style/CSS/)、W3C:World Wide Web Consortium
   * **[HTML5 & CSS3 リファレンス](https://www.osaka-kyoiku.ac.jp/~joho/html5_ref/html5.html)、大阪教育大学様**
+  * [HTMLタグ辞典｜コーディングのプロが作るHTMLタグ解説](https://html-coding.co.jp/annex/dictionary/html/)
   * [HTML LS コンテンツモデル ガイド](https://webgoto.net/html5/)、コンテンツモデル
   * [Nu	Html	Checker](https://validator.w3.org/nu/)、HTML文法チェッカー
   * [CSS	Validation	Service](https://jigsaw.w3.org/css-validator/)、CSS文法チェッカー
-* 色関連
+* デザイン・色関連
   * [CSS	Gradient](https://cssgradient.io/)、グラデーションピッカー
   * [CSS	Gradient](https://webgradients.com/)、グラデーションパターン参考
   * [GradPad](http://ourownthing.co.uk/gradpad.html)、グラデーションピッカー
   * [Eggradients](Eggradients)、グラデーションパターン参考
+  * [Google	Material	Icons](https://fonts.google.com/icons)、Google社提供の無料アイコン画像・フォントなど
  * サイト制作事前調査関連
    * [Statcounter](https://gs.statcounter.com/)、国別で解像度使用率などの統計データまとめサイト
    * [ScreenSizses](https://www.screensizes.app/)、デバイス規格まとめサイト
+* 実演・エンターテインメント
+   * [コードジャンプ Codejump](https://code-jump.com/)、作って学ぶコーディング学習サイト
+   * [Flexbox Froggy](https://flexboxfroggy.com/#ja)、Flexboxを覚えよう
+   * [Grid Garden](https://cssgridgarden.com/#ja)、グリッド関連を覚えよう
 
 ## HTMLとCSSとは
 * Webページ：
