@@ -277,6 +277,9 @@ B
   * 例: `<link rel="stylesheet" href="styles.css">`
 * ファビコン（タブに表示されるアイコン）
   * 例: `<link rel="icon" href="favicon.ico">`
+  * 例: `<link rel="icon alternate" href="favicon.png" type="image/png">`、**alternate**は代替案
+    * `type="image/svg+xml"`：SVGファイル、Safariはアイコンとして反映されない
+    * `type="image/png"`：pngファイル
 * フォントやアイコンの読み込み(例はGoogle Fonts のフォント)
   * 例: `<link rel="stylesheet" href="https://fonts.googleapis.com/css2family=Roboto&display=swap">`
 * href属性: パス  
