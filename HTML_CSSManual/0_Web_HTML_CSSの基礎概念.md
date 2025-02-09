@@ -47,6 +47,7 @@
 * デザイン・色関連
   * [CSS	Gradient](https://cssgradient.io/)、グラデーションピッカー
   * [CSS	Gradient](https://webgradients.com/)、グラデーションパターン参考
+  * [CSS グラデーションジェネレーター](https://front-end-tools.com/generateGradient/)、`background-image`の作成参考
   * [GradPad](http://ourownthing.co.uk/gradpad.html)、グラデーションピッカー
   * [Eggradients](Eggradients)、グラデーションパターン参考
   * [Google	Material	Icons](https://fonts.google.com/icons)、Google社提供の無料アイコン画像・フォントなど
