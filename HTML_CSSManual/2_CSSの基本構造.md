@@ -1,5 +1,6 @@
 概念
 * [CSSの基本構造](#cssの基本構造)
+  * [vendor prefixes、ベンダープレフィックス](#vendor_prefixesベンダープレフィックス)
 * [セレクター](#セレクター)
   * [A B {}、子孫セレクター](#a-b-子孫セレクター)
   * [A > B {}、直接の子要素セレクター](#a--b-直接の子要素セレクター)
@@ -11,6 +12,7 @@
 * [プロパティ](#プロパティ)
   * [padding、要素内側の余白](#padding要素内側の余白)
   * [margin、要素の外側の余白](#margin要素の外側の余白)
+  * [width・height、要素の幅・高さ指定](#widthheight要素の幅高さ指定)
   * [color、色指定](#color色指定)
   * [font、フォント指定](#fontフォント指定)
   * [text、テキスト指定](#textテキスト指定)
@@ -21,6 +23,7 @@
   * [position、位置](#position位置)
   * [transition、効果、時間的変化](#transition効果時間的変化)
   * [transform、@keyframes、アニメーションなどの要素変形](#transformkeyframesアニメーションなどの要素変形)
+  * [object、画像の切り抜き](#object画像の切り抜き)
   * [その他の指定](#その他の指定)
     * [影効果の指定](#影効果の指定)
     * [リストスタイル](#リストスタイル)
@@ -29,6 +32,11 @@
     * [content、画像・映像の差し込み](#content画像映像の差し込み)
     * [jumbotron、強調](#jumbotron強調)
 * [グリッドシステム](#グリッドシステム)
+  * [グリッドレイアウト設定](#グリッドレイアウト設定)
+  * [グリッドシステム_Bootstrap](#グリッドシステム_bootstrap)
+* [ハンバーガーメニュー](#ハンバーガーメニュー)
+  * [ハンバーガーメニューの基本HTMLやCSS](#ハンバーガーメニューの基本htmlやcss)
+  * [ハンバーガーメニュー_Bootstrap](#ハンバーガーメニュー_bootstrap)
 
 ***************************************************************************
 ## CSSの基本構造
@@ -55,6 +63,33 @@
         }
     </style>
 </head>
+```
+
+### vendor prefixes、ベンダープレフィックス
+* ベンダー接頭辞
+* 試験的、開発段階または非標準な CSS プロパティおよび JavaScript API に接頭辞を追加することがある  
+* ブラウザによって、反映状態が違ってくる場合がある
+* 主流は`-webkit-`と`-moz-`を指定しておく
+* 書き方：
+  1. `接頭辞 プロパティ;`
+  2. `実際に該標準プロパティを定義する`
+
+【CSSの主な接頭辞】
+* `-webkit-`：
+  * Chrome
+  * Safari
+  * 新しいバージョンの Opera
+  * ほぼすべての iOS ブラウザー (Firefox for iOS を含む)
+  * 基本的に WebKit ベースのブラウザーすべて
+* `-moz-`：**Firefox**
+* `-o-`：WebKit 導入前の古い Opera
+* `-ms-`：Internet Explorer と **Microsoft Edge**  
+
+```css
+/* background-clipを利用しよう */
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
 ```
 
 ## セレクター
@@ -204,6 +239,7 @@ input[type="text"] {
   2. 値を2つ指定：上の値、右の値（下の値＝上の値、左の値＝右の値）
   3. 値を3つ指定：上の値、右の値、下の値 （左の値＝右の値）
   4. 値を4つ指定：上の値、右の値、下の値、左の値
+* **インライン要素の【上下】に対して設定できない**
 
 ### margin、要素の外側の余白
 * `margin: 30px;`
@@ -211,6 +247,20 @@ input[type="text"] {
 * autoを掛けることも可。余白が自動調整される
   * 例：`margin: 30px auto;`　⇒　中央揃え（左右が同じように調整される）
 * 隣接同士で上要素に`margin-bottom:20px;`、下要素に`margin-top:50px;`の場合、**合計ではなく最大値（50px）を取る**
+* **インライン要素の【上下】に対して設定できない**
+
+### width・height、要素の幅・高さ指定
+* `width`：：コンテンツの幅制限を設ける。px数値または%
+* `height`：コンテンツの高さ制限を設ける。px数値または%
+* `max-width`：：コンテンツの幅制限を設ける。px数値または%
+* `max-height`：コンテンツの高さ制限を設ける。px数値または%
+  * 親要素の幅/高さより**大きくならない**。body直下の場合ブラウザの幅に収まるなど
+  * 画像が小さい場合は**拡大されない**
+* `min-width`：：コンテンツの幅制限を設ける。px数値または%
+* `min-height`：コンテンツの高さ制限を設ける。px数値または%
+  * 親要素の幅/高さより**小さくならない**。最低でも親要素と同じ幅を持つ
+  * 画像が大きい場合は**縮小されない**（オーバーフローする可能性がある）
+* **インライン要素に対して設定できない**
 
 ### color、色指定
 * **#rrggbb** か **rgba(r, g, b, a)** もしくは **代表色**で指定する必要がある
@@ -222,6 +272,7 @@ input[type="text"] {
   * `border-color`、境界色
   * `outline-color`、輪郭色
   * 使用例：`color: #C6A4E7;`
+  * 使用例：`color: transparent;`：色を透明にする（リセット）
 
 【スタイルで固定パターンの指定方法と代表色名】
 ```html
@@ -294,6 +345,11 @@ input[type="text"] {
   * `text-decoration:`位置 スタイル 色 太さ
     * 位置：underline、overline（上線）、line-through（打ち消し線）
     * スタイル：solid、double、dotted（点線）、dashed（破線）、wavy（波線）  
+* `text-transform:`：英文字を大文字または小文字にする
+  * uppercase：全文字を大文字にする
+  * lowercase：全文字を小文字にする
+  * capitalize：頭文字だけを大文字にする
+  * ウェブアクセシビリティ的に、HTMLでの大文字の並びに対しては**一文字ずつ読まれる**がCSSからの調整だと**単語として**読み上げる
 
 ```css
 a:hover {
@@ -330,6 +386,23 @@ a:hover {
 | inset | 内部が立体的にへこんで見える線 |
 | outset | 内部が立体的に飛び出して見える線 |
 
+### filter、フィルター
+* 透明度、飽和度、 コントラストのフィルターを掛ける
+* `filter: 効果(数値);`
+  * 効果：
+    * brightness：明るさ調整。大きいほど明るい
+    * drop-shadow：drop-shadow(オフセットX オフセットY ぼかし 色)、影をつける
+      * 例：`drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));`。右下にぼやけた黒い影をつける
+      * [影効果の指定](#影効果の指定)との比較
+    * blur：単位px。ぼかし。大きいほどぼかしが強くなる
+    * grayscale：グレースケール、モノクロ化。100%は完全なモノクロ
+    * sepia：セピア調（古い写真のような茶色っぽい色）にする
+    * saturate：彩度調整
+      * `0%`⇒**完全に白黒になる**。`100%`⇒**変化なし**、`200%`⇒**彩度2倍、より鮮やかに**
+    * contrast：コントラスト調整（明暗差）
+      * `0%`⇒**コントラストなし。グレー**。`100%`⇒**変化なし**、`200%`⇒**コントラスト2倍、より明るく**
+  * 数値は基本%で記述するのが推奨
+
 ### テーブルの幅調整
 ```html
 <style>
@@ -365,6 +438,9 @@ a:hover {
   * ブロック要素のように width や height を指定できる
   * margin・padding は上下左右に適用できる
   * 活躍する場面：ボタンやメニューなど、サイズ調整しつつ横並びにしたい
+* `display: none;`：該内容を生成しない
+  * 例：`<br class=".onlySP">` ⇒ `.onlySP {display: none;}`にすると改行されなくなる。戻すは`block`など
+* `display: grid`：[詳細](#グリッドレイアウト設定)
 
 | 種類         | 横幅指定        | 高さ指定 | 自動改行 | 横並び配置 |
 | ------------ | -------------- | ------ | -------- | ------------- |
@@ -404,7 +480,8 @@ a:hover {
 * align-self（個別の縦揃え）
   * `auto`：親の align-items に従う（デフォルト）
   * `flex-start`：上寄せ
-  * `flex-end`：下寄せ
+  * `flex-end`：下寄せ（親の**フレックス軸の終点**に揃える）
+  * `end`：下寄せ（親の**書字方向の終点**に揃える）
   * `center`：縦中央揃え
   * `baseline`：文字のベースラインを揃える
   * `stretch`：親要素の高さいっぱいに伸ばす
@@ -426,9 +503,17 @@ a:hover {
 ### background、背景
 * `background`：color url(パス) repeat position/size
   * 例：`background: red url(パス) no-repeat right center/cover;`
-* `background-image: url(パス);`：背景に画像を入れ込む
+* `background-image: url(パス);`：背景に画像を入れ込む（linearなどを利用した画像も可）
   * タイル状に敷き詰めた形で繰り返し背景画像が表示される
   * 元画像が小さいと読み込みが重くなる場合がある
+  * ` linear-gradient(方向斜度, 色1 位置, 色2 位置... 位置)`：グラデーションを作成するための関数
+    * 斜度：単位`deg`、90度で垂直方向、180度で水平方向に分ける
+    * 位置：指定色が一番濃くなる位置を指定する。0%は開始位置、100%は終了位置
+    * 例：`background-image: linear-gradient(135deg,#e6ba5d 0%,#9ac78a 100%);`斜めの線で色変化
+    * 例：`background: linear-gradient(to right, red, blue);`：左から右へ、赤から青へ
+    * 例：`background: linear-gradient(45deg, yellow, green);`：45度の角度、で黄色から緑へ
+    * 例：`background: linear-gradient(to bottom, pink, transparent);`：上から下へ、ピンクから透明に
+    * [CSS グラデーションジェネレーター](https://front-end-tools.com/generateGradient/)、作成参考例
 * `background-repeat`:繰り返す形式を指定する
   * `repeat`：デフォルト
   * `repeat-x`：水平方向に繰り返す
@@ -440,6 +525,11 @@ a:hover {
 * `background-size`:はみ出し場合の対応
   * `cover`：幅と高さのうち背景配置ボックスの値との比が小さい方を一致させるように，拡大・縮小する
   * `contain`：画像が 背景配置ボックス 内に完全に収まる
+* `background-clip`：
+  * `border-box`：デフォルト、ボーダーを含む領域まで背景を適用する（**ボーダーを含めて**背景が表示される）
+  * `padding-box`：ボーダーには適用されない（**ボーダーを除いて**背景が表示される）
+  * `content-box`：コンテンツ部分のみ背景適用（**ボーダーと padding領域を除いて**背景が表示される）
+  * `text`：背景を**テキストの形に切り抜く**指定(**ベンター接頭辞必要**)
 
 ```css
 h3 {
@@ -516,6 +606,7 @@ input[type="submit"]:hover {
   * `skew`：移動
   * X：水平方向に（scaleの場合拡大）
   * Y：垂直方向に（scaleの場合拡大）
+  * ※CSSで追加した画像はmargin/paddingで調整できないため`transform`で代用する
 * `transform-origin`：変形する基準を指定する
   * 例：`transform-origin: left top;`左上を基準に
   * `center`：デフォルト、中心
@@ -557,11 +648,23 @@ header .scroll img {
 }
 ```
 
+### object、画像の切り抜き
+* `object-fit`：
+  * `fill`：コンテンツボックスのサイズにちょうど合うように調整（無理やりに引っ張る）
+  * `contain`：縦横比は保持したまま，コンテンツボックスに**全体が収まる最小のサイズ**に調整(全体見えるのを重視)
+  * `cover`：縦横比は保持したまま，コンテンツボックスを**完全に埋める最小のサイズ**に調整する（余白のない拡大、一部内容が画面外に出る可能性ある）
+* `object-position: 水平位置 垂直位置`：
+  * center、%などから指定することを推奨
+
 ### その他の指定
 #### 影効果の指定
 * `box-shadow:` X軸位置 Y軸位置 ぼかし 広がり 色 内側であるかどうか
   * 例：`box-shadow: 10px 10px 20px 12px #ffffff inset;'
   * `inset` 記述が内場合、外側に影を入れる
+  * **透過画像に対しては不自然な影になる**、四角形（ボックスモデル）の影を入れる
+* [filter、フィルター](#filterフィルター)に挙げた`filter: drop-shadow(X軸位置 Y軸位置 ぼかし 色)`との比較
+  * PNGやSVGのような背景透過画像に対して、画像元の**非透明部分に沿って影を入れる**
+  * `box-shadow`の方が細かく設定できる（広がり範囲、内側か外側か）
 
 #### リストスタイル
 * `list-style-type`
@@ -572,7 +675,6 @@ header .scroll img {
   * `none`：なし
 
 #### スクロール
-* `height`：コンテンツの高さ制限を設ける
 * `overflow`：オーバーフロー（許容範囲を超えた状態）⇒スクロール
   * `visible`：デフォルト、はみ出し部分をそのまま表示する
   * `hidden`：隠す（スクロールもできない状態）
@@ -639,6 +741,29 @@ blockquote::after {
   * Bootstrapの特徴であるレスポンシブデザインにより、jumbotronは様々な画面サイズに適応し、適切に表示される
 
 ## グリッドシステム
+### グリッドレイアウト設定
+* `display: grid;`で利用する（ulなどのリストに対して設定することが多い）
+* `flexbox`は一行または一列での整列に対して`grid`は複数行で並び替えができる
+* グリッドライン(grid line)
+* グリッドトラック(grid track)
+* グリッドセル(grid cell)  
+
+【設置手順】  
+1. `display: grid;`：親要素で指定
+2. 各行/列の長さを指定、複数形、単位：`px`、`vw`、`%` など
+  * `grid-template-rows`：行数があるだけ該行の高さを指定する
+  * `grid-template-columns`：列数があるだけ該列の広さを指定する
+  * 例：`grid-template-rows: 20vw 30vw 40vw;`：20vw+30vw+40vwで合計3行のグリッド
+3. 子要素に置く、単数形、グリッドラインで指定する、一番上/左のラインは1でスタート。囲んだ範囲が子要素の位置。\[a, b + 1]
+  * `grid-row-start: a;`：上から
+  * `grid-row-end: b;`：下へ囲む
+  * `grid-row: a / b;`：一行で指定することも可
+  * `grid-column-start: a;`：左から
+  * `grid-column-end: b;`：右へ囲む
+  * `grid-column: a / b;`：一行で指定することも可
+
+### グリッドシステム_Bootstrap
+* **本項はBootstrap使用前提の内容**
 * 行(row)と列(column/ col)で管理する
 * 一行は12グリッドとなる
 * `<div class="row">`　⇒　行、指定すると同じ行となる範囲を囲む
@@ -706,4 +831,171 @@ blockquote::after {
 </body>
 
 </html>
+```
+
+## ハンバーガーメニュー
+### ハンバーガーメニューの基本HTMLやCSS
+【HTML内記述、<header>内推奨】  
+* メニューボタンを押すと、チェックボックスのON/OFFが切り替わる
+* 「:checked」を使用すると、チェックボックスがONのときのCSSを設定できる
+* 「:checked」と「~」を組み合わせることで、チェックボックスがONのときのメニューボタンやメニューのデザインを設定できる
+* チェックボックスがONのとき ⇒ メニューを表示し、メニューボタンが「✕」になる
+* チェックボックスがOFFのとき ⇒ メニューを非表示にし、メニューボタンが三本線（ハンバーガーメニュー）になる  
+
+```html
+<nav class="gMenu">
+  <input class="menu-btn" type="checkbox" id="menu-btn">
+  <label class="menu-icon" for="menu-btn">
+    <span class="navicon"></span>
+  </label>
+  <ul class="menu">
+    <li><a href="#">menu1</a></li>
+    <li><a href="#">menu2</a></li>
+    <li><a href="#">menu3</a></li>
+  </ul>
+</nav>
+```
+
+【CSS内記述、`<link rel="stylesheet" href="menu.css">`とかで別ファイルに保存しておくのも可】
+```css
+/* メニューを画面の上部に固定 */
+.gMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+/* メニューアイコン（ハンバーガーメニュー）を画面の右上に固定 */
+.gMenu .menu-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  padding-top: 5px;
+  height: 12px;
+}
+
+/* メニューアイコン（三本線）の中央の線 */
+.gMenu .menu-icon .navicon {
+  background: #ffc107; /* 色は自由に変更可能 */
+  display: block;
+  height: 2px; /* 線の太さ */
+  width: 31px; /* 線の長さ */
+  position: relative;
+  transition: background .4s ease-out; /* 形が変わる際のアニメーション */
+}
+
+/* 疑似要素を使って、メニューアイコン（三本線）の上下に線を追加 */
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after {
+  background: #ffc107; /* 色は自由に変更可能 */
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .4s ease-out; /* 形が変わる際のアニメーション */
+  width: 100%;
+}
+.gMenu .menu-icon .navicon::before {top: 10px;} /* 上の線を移動 */
+.gMenu .menu-icon .navicon::after {top: -10px;} /* 下の線を移動 */
+
+/* 表示されるメニュー */
+.gMenu .menu {
+  background-color: rgba(255,255,255,0.9);
+  overflow: hidden;
+  max-height: 0; /* ★ 初期状態では高さを0にして非表示 */
+  transition: max-height .6s; /* 表示時のアニメーション */
+  text-align: center;
+}
+
+/* メニューのデザイン */
+.gMenu .menu li:first-of-type {
+  padding-top: 50px;
+}
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+  background-color: #f4f4f4;
+}
+
+/* チェックボックスは常に非表示 */
+.gMenu .menu-btn {
+  display: none;
+}
+
+/* ▼▼▼ チェックボックスがONのときの設定 ▼▼▼ */
+
+/* チェックボックスがONのとき、メニューを表示（高さを338pxに設定） */
+.gMenu .menu-btn:checked ~ .menu {
+  max-height: 338px;
+  transition: max-height .6s;
+}
+
+/* メニューアイコンの中央の線を透明にする（✕マークの作成） */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+/* メニューアイコンの上下の線を45度傾けて「✕」マークを作る */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+```
+
+### ハンバーガーメニュー_Bootstrap
+* **本項はBootstrap使用前提の内容**
+* ナビゲーションバー
+* デバイス広さが短い場合、ハンバーガーメニューに変換する仕組みのコードとなる
+
+```html
+<!-- ナビゲーションバーの設定。クラスで色や位置を指定 -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- コンテンツの中央揃えをするためのコンテナ -->
+    <div class="container">
+        <!-- ナビゲーションバーのヘッダー部分 -->
+        <div class="navbar-header">
+            <!-- 画面が小さくなった時に表示されるメニューボタン（ハンバーガーみたいなやつ） -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <!-- 画面リーダー用のテキスト。表示はされず、音声読み上げ等に対応 -->
+                <span class="sr-only">Toggle navigation</span>
+                <!-- ボタン内の3本線アイコンの1本目 -->
+                <span class="icon-bar"></span>
+                <!-- ボタン内の3本線アイコンの2本目 -->
+                <span class="icon-bar"></span>
+                <!-- ボタン内の3本線アイコンの3本目 -->
+                <span class="icon-bar"></span>
+            </button>
+            <!-- ナビゲーションバー左側のブランド名（リンク付き） -->
+            <a class="navbar-brand" href="#">会社ロゴ名や固定したい文章など</a>
+        </div>
+        <!-- ナビゲーションバー内のリンクや項目の設定 -->
+        <div id="navbar" class="collapse navbar-collapse">
+            <!-- リスト形式でナビゲーションメニューを作成 -->
+            <ul class="nav navbar-nav">
+                <!-- 現在のページを示すために"active"クラスを使用 -->
+                <li class="active"><a href="#">Home</a></li>
+                <!-- ページ内の"list"というidにジャンプするリンク -->
+                <li><a href="#list">List</a></li>
+                <!-- テーブルページのリンク -->
+                <li><a href="">Table</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+```
+なお、下記内容を読み込む必要もある。\<body>の最後に入れておけばいい内容
+```html
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 ```
