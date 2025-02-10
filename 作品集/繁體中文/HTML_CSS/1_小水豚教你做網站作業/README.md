@@ -1,4 +1,4 @@
-* 【小水豚教你做網站! 輕鬆學好 HTML / CSS 網頁設計】
+* 【[小水豚教你做網站! 輕鬆學好 HTML / CSS 網頁設計](https://www.books.com.tw/products/0010958744?srsltid=AfmBOoq-gROQDr1e10tkxcowuKen3MCqEMpeTdGEOr84zalaRTHUMWc5)】
   * 原文標題:これだけで基本がしっかり身につく HTML/CSS＆Webデザイン1冊目の本
   * 出版社：旗標
   * 學習HTML/CSS基礎及補充小撇步
