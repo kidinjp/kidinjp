@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="styles/tomorrow-night-eighties.css"> -->
+    <link rel="stylesheet" href="js/styles/monokai-sublime.css">
+    <script src="js/highlight.js"></script>
+    <script>hljs.highlightAll();</script>
+    <title>只用CSS建立漢堡選單的方法 | Dev Blog</title>
+  </head>
+  <body>
+    <header>
+      <h1><img src="images/logo.png" alt="Dev Blog"></h1>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li class="current"><a href="#">BLOG</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div>
+      <main>
+        <article>
+          <h2>只用CSS建立漢堡選單的方法</h2>
+          <p class="postdate">
+            <time datetime="2021-xx-xxT21:03">
+              2021年8月8日12點34分
+            </time>
+          </p>
+          <p class="eyecatch">
+            <img src="images/eyecatch.png" alt="只用CSS建立漢堡選單">
+          </p>
+          <section>
+            <p>可以建立只用CSS，不用JavaScript，就能開關的選單。<br>
+            這次要介紹以下方法！</p>
+            <h3>HTML的描述</h3>
+            <p>
+<pre><code class="html">&lt;nav class="gMenu"&gt;
+  &lt;input class="menu-btn" type="checkbox" id="menu-btn"&gt;
+  &lt;label class="menu-icon" for="menu-btn"&gt;
+    &lt;span class="navicon"&gt;&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;ul class="menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;menu1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;menu2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;menu3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </p>
+          </section>
+          <section>
+            <h3>HTML的說明</h3>
+            <section>
+              <h4>插入HTML的地方</h4>
+              <p>
+                基本上放在哪裡都可以執行，但是插入header標籤內或放在body的結束標籤前，比較不會發生問題。
+              </p>
+            </section>
+            <section>
+              <h4>HTML的說明與重點</h4>
+              <p>
+                漢堡選單大部分都是當作全域選單，所以會使用nav標籤。雖然可以依照你的程式碼改成div標籤，但是請加上class="menu-btn"。
+              </p>
+<pre><code class="html">&lt;input class="menu-btn" type="checkbox" id="menu-btn"&gt;</code></pre>
+              <p>
+                這是決定選單開關狀態的核取方塊。方塊本身會造成干擾，所以用CSS隱藏起來。
+              </p>
+<pre><code class="html">&lt;label class="menu-icon" for="menu-btn"&gt;
+  &lt;span class="navicon"&gt;&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+              <p>
+                稱作漢堡選單是因為以三條線（選單按鈕）顯示的部分。用span標籤畫線，並以CSS的虛擬元素（::before,::after）增加大小一樣的線條，變成三條線。
+              </p>
+              <p>
+                使用label標籤標記，加上for="menu-btn"屬性，按下label元素時，可以切換前面提到的核取方塊ON/OFF。
+                即使用CSS隱藏核取方塊也可以執行此動作。
+              </p>
+<pre><code class="html">&lt;ul class="menu"&gt;
+  &lt;li&gt;&lt;a href="menu1.html"&gt;menu1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="menu2.html"&gt;menu2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="menu3.html"&gt;menu3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+              <p>
+                這是要顯示的選單部分。利用CSS調整，並使用overflow:hidden;max-height:0;，直到按下選單按鈕才會顯示該部分。
+              </p>
+            </section>
+          </section>
+          <section>
+            <h3>大致結構</h3>
+            <p>
+              組合模擬類別選擇器「:checked」與一般兄弟組合器「~」，可以切換顯示或隱藏選單。<br>
+            </p>
+            <ul>
+              <li>1. 按下選單按鈕，會切換核取方塊ON/OFF</li>
+              <li>2. 使用「:checked」可以設定核取方塊為ON時的CSS</li>
+              <li>3. 組合「:checked」與「~」設定可以設定核取方塊為ON時的選單按鈕及選單</li>
+              <li>4. 核取方塊為ON時 ⇒ 顯示選單。選單按鈕變成✕。</li>
+              <li>5. 核取方塊為OFF時 ⇒ 隱藏選單。選單按鈕變成三條線。</li>
+            </ul>
+          </section>
+          <section>
+            <h3>CSS的描述</h3>
+            <p>
+<pre><code class="css">/* 選單固定顯示在畫面上方 */
+.gMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+/* 選單圖示固定在畫面右上方 */
+.gMenu .menu-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  padding-top: 5px;
+  height: 12px;
+}
+/* 這是選單圖示（三條線）正中央的線條 */
+.gMenu .menu-icon .navicon {
+  background: #ffc107; /* 可以任意改變顏色 */
+  display: block;
+  height: 2px; /* 粗細 */
+  width: 31px; /* 長度 */
+  position: relative;
+  transition: background .4s ease-out; /* 改變形狀時的動畫 */
+}
+/* 以虛擬元素增加選單圖示（三條線）上下的線條 */
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after {
+  background: #ffc107; /* 可以任意改變顏色 */
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .4s ease-out; /* 改變形狀時的動畫 */
+  width: 100%;
+}
+.gMenu .menu-icon .navicon::before {top: 10px;} /* 位置往上移動 */
+.gMenu .menu-icon .navicon::after {top: -10px;} /* 位置往下移動 */
+/* 這是顯示的選單 */
+.gMenu .menu {
+  background-color: rgba(255,255,255,0.9);
+  overflow: hidden;
+  max-height: 0; /* ★一開始高度為0，呈現隱藏狀態 */
+  transition: max-height .6s; /* 顯示時的動畫 */
+  text-align: center;
+}
+/* 這是選單的設計 */
+.gMenu .menu li:first-of-type {
+  padding-top: 50px;
+}
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+  background-color: #f4f4f4;
+}
+/* 隨時隱藏核取方塊 */
+.gMenu .menu-btn {
+  display: none;
+}
+/* ▼▼▼以下是核取方塊為ON時的狀態▼▼▼ */
+.gMenu .menu-btn:checked ~ .menu {
+  max-height: 338px; /* ★核取方塊為ON時，高度顯示為338px */
+  transition: max-height .6s;
+}
+/* 隱藏選單按鈕的中間線條 */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon {background: transparent;}
+
+/* 選單按鈕的上下線條傾斜45度，製作出✕符號 */
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::before {transform: rotate(-45deg);top: 0;}
+.gMenu .menu-btn:checked ~ .menu-icon .navicon::after {transform: rotate(45deg);top: 0;}</code></pre>
+            </p>
+            <section>
+              <h4>■CSS的重點</h4>
+              <p>
+  <pre><code class="css">.gMenu .menu-btn:checked ~ .menu {</code></pre>
+                設定勾選核取方塊時，選單「.menu」的狀態。
+              </p>
+            </section>
+          </section>
+          <section>
+            <h3>CSS的載入範例</h3>
+            <section>
+              <h4>在現有CSS檔案新增CSS時</h4>
+              <p>
+                請將上述「CSS的描述」中的程式碼拷貝＆貼上至現有CSS的最後。
+              </p>
+            </section>
+            <section>
+              <h4>把CSS當作外部檔案載入時</h4>
+              <p>
+<pre><code class="html">&lt;link rel="stylesheet" href="menu.css"&gt;</code></pre>
+              </p>
+            </section>
+          </section>
+          <section>
+            <h3>Demo</h3>
+            <p>確認結果的網頁請見<a href="./demo/index.html">這裡</a></p>
+          </section>
+        </article>
+      </main>
+      <aside>
+        <nav class="authorNav">
+          <h2>Author</h2>
+          <p class="profImage"><img src="images/prof.png" alt="示意圖">
+          </p>
+          <p>我是標記工程師。<br>
+          這個部落格會介紹編寫程式碼的技巧及日常的學習內容。</p>
+        </nav>
+        <nav class="categoryNav">
+          <h2>Category</h2>
+          <ul>
+            <li><a href="#">HTML(14)</a></li>
+            <li><a href="#">CSS(25)</a></li>
+            <li><a href="#">WordPress(31)</a></li>
+            <li><a href="#">工作方法(12)</a></li>
+            <li><a href="#">JavaScript(21)</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+    <footer>
+      <p><small>© 2021 Dev Blog</small></p>
+    </footer>
+  </body>
+</html>
