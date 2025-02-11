@@ -93,4 +93,4 @@
 
 ## 【その他、GitHub操作関連のManual】
 * 2024/11/06、Markdownファイルについて.md
-* 2024/11/06、GitHub.md
+* 2024/11/06、GitHubの基礎概念.md
