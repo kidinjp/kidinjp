@@ -19,6 +19,8 @@
   * [ブランチの切り替えやコミット移動](#ブランチの切り替えやコミット移動)
 * [最近やった操作の操作例](#最近やった操作の操作例)
   * [リポジトリの内容をローカルPCにコピーして、フォルダファイルを追加してから同期する](#リポジトリの内容をローカルpcにコピーしてフォルダファイルを追加してから同期する)
+  * [ローカルPCにリポジトリフォルダが既にありアップデートしたい場合](#ローカルpcにリポジトリフォルダが既にありアップデートしたい場合)
+  * [Git LFSの使い方](git_lfsの使い方)
 
 ***************************************************************************
 
@@ -145,7 +147,7 @@ git pull origin main --rebase
 git clone <HTTPS_URL>
 ```
 * **HTTPS_URL**：`https://（ユーザー名：アクセストークン＠`
-* 例：このBennkyouNoteのURLは【https://github.com/kidinjp/BennkyouNote.git】となる
+* 例：このBennkyouNoteのURLは【https://github.com/kidinjp/BennkyouNote.git`】となる
 
 ## スタッシュ（作業の一時保存）
 ```
@@ -166,7 +168,6 @@ git checkout -- ファイル名   # 特定のファイルの変更を取り消�
 # 最近やった操作の操作例
 
 ## リポジトリの内容をローカルPCにコピーして、フォルダファイルを追加してから同期する
-
 1. ターミナル（今回はPowerShell今回はを使用）を開いて、コピー先に移動
     * `cd Documents/Projects`
 2. クローンする
@@ -186,3 +187,39 @@ git checkout -- ファイル名   # 特定のファイルの変更を取り消�
 7. リモートリポジトリにプッシュする
     * `git push origin main`
     * ※ 100MB超えのファイルがある場合【Git LFS】を利用する必要がある
+
+## ローカルPCにリポジトリフォルダが既にありアップデートしたい場合
+1. 該リポジトリフォルダに移動する
+    * `cd BennkyouNote`
+2. ブランチが`main`の場合
+    * `git pull origin main`
+  
+## Git LFSの使い方
+* フォルダA　に　`sharedassets0.resource`　というファイルがある
+* 今回はフォルダB（リポジトリ同名内のフォルダ）とのフォルダに移動させたい
+* ※ 下記やり方は、Git LFSをダウンロードできてる前提ですすめる
+* ※ ダウンロードページ、[Git LFS 公式サイト](https://git-lfs.com/)
+
+1. 該リポジトリフォルダに移動し、Git LFS をリポジトリで有効化 (このコマンドは 1回だけ 実行すればOK)
+    * `cd C:\Users\q1352\OneDrive\桌面\プログラミング関連\GitHub管理\BennkyouNote`
+    * `git lfs install`
+2. ブランチが`main`の場合
+    * `git pull origin main`
+3. `.resource` ファイルを Git LFS で管理対象にする  
+    * `git lfs track "*.resource"`
+    * ※ この設定は `.gitattributes` ファイルに記録され
+4. ファイルをリポジトリの適切なフォルダへ移動
+    * 下記二つの書き方どちらでも可。改行で書くときに【`】を挟む必要があることを示す(PowerShell)  
+
+```
+Move-Item -Path "フォルダA\sharedassets0.resource" /`
+          -Destination "フォルダB"
+
+Move-Item -Path "移動するファイルまたはフォルダのパス" -Destination "移動先のフォルダのパス"
+```
+5. ブランチが`main`の場合
+    * `cd リポジトリフォルダ`
+    * `git add .gitattributes`
+    * `git add フォルダB/sharedassets0.resource`
+    * `git commit -m "Add sharedassets0.resource using Git LFS"`　、今回はGit LFSでコミットするとの旨を
+    * `git push origin ブランチ名`
