@@ -10,12 +10,13 @@
 ***************************************************************************
 # 【自我介紹】
 我來自台灣，目前正自學遊戲開發和Web系統開發，立志成為軟體工程師。  
+曾參與勞動部主辦的「Unity工程師養成班」計畫，這是我踏入軟體開發領域的第一步。在此計畫中，我進行了多個學習與實作專案，並在最後完成了[成果發表報告](https://www.canva.com/design/DAFpPVzcp1w/3RHpOZZTuXIX1gwWG60fdg/edit?utm_content=DAFpPVzcp1w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)，歡迎參考。  
 目前主要學習Unity（C#）、Python 3、Java，並積極挑戰資料庫及前端技術。  
 
 為實現在日本擔任工程師的人生夢想，我將不斷努力製作作品集，並積極累積實戰開發經驗。  
 期望能夠持續成長，並將所學轉化為實際成果！  
 
-歡迎參考我的[作品集](#作品集)。  
+歡迎參考我的[作品集](#作品集)，感謝您。  
 
 ## 【技能清單】
 1. **C# / Unity** (2023/06~)  
@@ -39,6 +40,17 @@
    - **熟練度**: 應用級  
    - **學習筆記**: [HTML/CSS Manual](HTML_CSSManual/)  
    - **作品集**: [作品集](作品集/繁體中文/HTML_CSS/)  
+
+## 【相關證書】
+1. Unity程式設計師認證（2023/07/20取得）
+<p align="center">
+  <img src="履歴書用データ/Unity認定ユーザー：プログラマー.png" width="50%">
+</p>
+
+2. Unity藝術設計師認證（2023/07/20取得）
+<p align="center">
+  <img src="履歴書用データ/Unity認定ユーザー：アーティスト.png" width="50%">
+</p>
 
 ## 【聯絡方式】
 * GitHub: [kidinjp](https://github.com/kidinjp)
