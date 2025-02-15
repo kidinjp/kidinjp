@@ -10,7 +10,9 @@
 ***************************************************************************
 # 【自己紹介】
 台湾人です。ソフトウェアエンジニアを目指して、ゲーム開発やWebシステム開発を独学で勉強中です。  
-Unity (C#), Python, Java を中心に学習しながら、データベースやフロントエンド技術にも挑戦しています。  
+2023年6月に「Unityエンジニア養成班」プログラムに参加し、これが私がソフトウェア開発の分野に足を踏み入れる第一歩でした。  
+このプログラムでは、いくつかの学習と実践的なプロジェクトに取り組み、最終的には[成果発表報告書](https://www.canva.com/design/DAGP0_elCCw/sYSSpWlt3yTxV4hA1F5VnQ/edit?utm_content=DAGP0_elCCw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)を完成させました。ぜひご覧ください。  
+今もなおUnity (C#), Python, Java を中心に学習しながら、データベースやフロントエンド技術にも挑戦しています。  
 
 現在は、日本でエンジニアとして働くことを目標に、ポートフォリオ制作や実践的な開発スキルの習得に励んでいます。  
 少しずつ成長しながら、知識を形にしていきたいと思っています！  
@@ -38,6 +40,17 @@ Unity (C#), Python, Java を中心に学習しながら、データベースや�
    - **習熟度**: 応用レベル  
    - **学習メモ**: [HTML/CSS Manual](HTML_CSSManual/)  
    - **ポートフォリオ**: [作品集](作品集/繁體中文/HTML_CSS/)  
+
+## 【資格証明書】
+1. Unity認定ユーザー：プログラマー（2023/07/20取得）
+<p align="center">
+  <img src="履歴書用データ/Unity認定ユーザー：プログラマー.png" width="50%">
+</p>
+
+2. Unity認定ユーザー：アーティスト（2023/07/20取得）
+<p align="center">
+  <img src="履歴書用データ/Unity認定ユーザー：アーティスト.png" width="50%">
+</p>
 
 ## 【連絡先】
 * GitHub: [kidinjp](https://github.com/kidinjp)
