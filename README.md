@@ -162,6 +162,6 @@
 * 2024/11/08。【Tips】Java基本文法.md
 * 2024/11/08、【Tips】0Java基礎.md
 
-## 【その他、GitHub操作関連のManual】
+## 【其他、GitHub操作相關的Manual】
 * 2024/11/06、Markdownファイルについて.md
 * 2024/11/06、GitHubの基礎概念.md
