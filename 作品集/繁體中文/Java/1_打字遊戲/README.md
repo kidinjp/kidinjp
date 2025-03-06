@@ -30,7 +30,7 @@ resources
 src
 └─  io
   └─ TypingConsole.java、、、、、、、【6】
-	└─ WordManager.java、、、、、、、、【7】
+  └─ WordManager.java、、、、、、、、【7】
 └─  main
   └─ AbstractTypingGame.java、、、【3】
   └─ ITypingGame.java、、、、、、、、【2】
