@@ -1,4 +1,3 @@
-【Tips】03Node.jsプロジェクトの基本的な構成まとめ.md
 概要
 * [Node.jsプロジェクトのよくある構造](#Nodejsプロジェクトのよくある構造)
   * [package.jsonとは](#packagejsonとは)
