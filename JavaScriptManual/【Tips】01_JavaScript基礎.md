@@ -159,8 +159,8 @@ console.log(Number(num1) + Number(num2));　⇒　40　との数字計算結果�
     * 複数の単語を組み合わせる場合、**2番目以降の単語の先頭を大文字**にする
 
 # 文字列の埋め込み、テンプレートリテラル
-console.log(`やぁ、 ${name} だよ`);  
-`${num}${num2}`　⇒　数字での埋め込み、加算されない  
+console.log(\`やぁ、 ${name} だよ\`);  
+\`${num}${num2}\`　⇒　数字での埋め込み、加算されない  
 バッククォート（`）で囲まれた文字列の中では、${変数名} という形で変数の値を文字列に埋め込むことができる  
 参考資料：[MDN web docs](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/template_strings)
 
