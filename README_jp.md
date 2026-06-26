@@ -137,7 +137,7 @@ Java、COBOL、Oracle SQLを用いた機能開発・改修対応に加え、障�
 * 2026/01/19、外部サイト：[基本情報技術者対策](https://docs.google.com/spreadsheets/d/1hhQGJZJyuUzygikoteQMmnXlfWEoNTti7C5zuS0sTCM/edit?gid=0#gid=0)
 
 ## 【Cobol】
-* 2026/03/13、因業務需求開始學習，將學習筆記一次上傳
+* 2026/03/13、業務上の必要により学習を開始し、学習ノートをまとめてアップロード
  
 ## 【JavaScript】
 * 2025/03/06、【Tips】03_Node.jsプロジェクトの基本的な構成まとめ.md
