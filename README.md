@@ -9,13 +9,21 @@
 
 ***************************************************************************
 # 【自我介紹】
-我來自台灣，目前正自學遊戲開發和Web系統開發，立志成為軟體工程師。  
-於2023年6月參與勞動部主辦的「Unity工程師養成班」計畫，這是我踏入軟體開發領域的第一步。  
-在此計畫中，我進行了多個學習與實作專案，並在最後完成了[成果發表報告](https://www.canva.com/design/DAFpPVzcp1w/3RHpOZZTuXIX1gwWG60fdg/edit?utm_content=DAFpPVzcp1w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)，歡迎參考。  
-目前主要學習Unity（C#）、Python 3、Java，並積極挑戰資料庫及前端技術。  
+我是來自台灣的軟體工程師，目標成為能獨當一面的軟體開發工程師。  
+於2023年6月參加「Unity工程師養成班」計畫，這是我踏入軟體開發領域的第一步。  
 
-為實現在日本擔任工程師的人生夢想，我將不斷努力製作作品集，並積極累積實戰開發經驗。  
-期望能夠持續成長，並將所學轉化為實際成果！  
+在該計畫中，我參與多項學習與實作專案，最終完成了[成果發表報告書](https://www.canva.com/design/DAFpPVzcp1w/3RHpOZZTuXIX1gwWG60fdg/edit?utm_content=DAFpPVzcp1w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)，歡迎參閱。  
+
+目前持續以 C#、Python、Java 為主進行學習，同時也在接觸資料庫與前端技術。  
+
+此外，自2025年3月起任職於資訊產業，擔任初階軟體工程師，參與銀行系統之開發與維護工作。  
+使用 Java、COBOL、Oracle SQL 進行功能開發與修改，並透過障礙調查與使用者問題回應等實務經驗持續提升技術能力。  
+
+同時也在工作之餘準備日本資訊相關證照，並於2026年3月取得 ITパスポート、情報セキュリティマネジメント試驗及基本情報技術者試驗。  
+目前正持續準備 Oracle Master Silver SQL（1Z0-071）。  
+
+在累積實務經驗的同時，我以赴日發展為目標，持續進行作品集製作與技術學習。  
+期望未來能將所學轉化為實際成果，並持續成長為更具實力的工程師。  
 
 歡迎參考我的[作品集](#作品集)，感謝您。  
 
@@ -45,6 +53,10 @@
 6. **JavaScript** (2025/02~)
    - **熟練度**: 入門級  
    - **學習筆記**: [JavaScriptManual](JavaScriptManual/)  
+
+7. **COBOL** (2025/10~)
+   - **熟練度**: 實戰級  
+   - **學習筆記**: [CobolManual](CobolManual/)  
    
 ## 【相關證書】
 1. Unity程式設計師認證（2023/07/20取得）
@@ -57,17 +69,38 @@
   <img src="履歴書用データ/Unity認定ユーザー：アーティスト.png" width="50%">
 </p>
 
+3. 基本情報技術者試験（2026/05/25取得）
+   - **學習筆記1**: [基本情報技術者試験](基本情報技術者試験/)
+   - **學習筆記2**: [基本情報技術者対策(試算表)](https://docs.google.com/spreadsheets/d/1hhQGJZJyuUzygikoteQMmnXlfWEoNTti7C5zuS0sTCM/edit?gid=0#gid=0)
+<p align="center">
+  <img src="履歴書用データ/基本情報技術者試験.png" width="50%">
+</p>
+
+4. 情報セキュリティマネジメント試験（2026/05/25取得）
+   - **學習筆記**: 與 基本情報技術者試験 共用
+<p align="center">
+  <img src="履歴書用データ/情報セキュリティマネジメント試験.png" width="50%">
+</p>
+
+5. ITパスポート試験（2026/05/25取得）
+   - **學習筆記**: 與 基本情報技術者試験 共用
+<p align="center">
+  <img src="履歴書用データ/ITパスポート試験.png" width="50%">
+</p>
+
 ## 【聯絡方式】
 * GitHub: [kidinjp](https://github.com/kidinjp)
 * Email: `yuting53jp@gmail.com`
 
 ***************************************************************************
 # 【關於此存儲庫】
-從2024年11月起，我開始整理過去的學習成果，將學習心得與筆記詳細記錄並附上作品及，以便未來能夠輕鬆回顧與複習。  
+從2024年11月起，我開始整理過去的學習成果，將學習心得與筆記詳細記錄並附上作品集，以便未來能夠輕鬆回顧與複習。  
 
 ## 【近期目標】
 * 製作 Python 3 學習手冊
 * JavaScript編碼練習
+* 考Oracle Master Silver SQL 2019
+  * 2026/04/13、外部網站(Google試算表筆記)：［Oracle Master Silver SQL 2019対策］（https://docs.google.com/spreadsheets/d/1rF515WZzdrP1-TDOLAm6bvIY65A7tzLZRy3JK4BDE3Q/edit?gid=1975707988#gid=1975707988）
 
 ## 【隨時更新】
 * 各程式語言的演算法
@@ -98,6 +131,13 @@
 * 2025/02/10、[日本語/Java/2_タイピングゲーム](作品集/日本語/Java/2_タイピングゲーム/)
 * 2025/02/10、[日本語/Java/1_Java基礎クラス課題](作品集/日本語/Java/1_Java基礎クラス課題/)
 
+## 【基本情報技術者試験】
+* 2026/03/13、ITパスポート試験、基本情報技術者試験情報、セキュリティマネジメント試験，單字考題APP
+* 2026/01/19、外部網站(Google試算表) [基本情報技術者対策](https://docs.google.com/spreadsheets/d/1hhQGJZJyuUzygikoteQMmnXlfWEoNTti7C5zuS0sTCM/edit?gid=0#gid=0)
+
+## 【Cobol】
+* 2026/03/13、因業務需求開始學習，將學習筆記一次上傳
+ 
 ## 【JavaScript】
 * 2025/03/06、【Tips】03_Node.jsプロジェクトの基本的な構成まとめ.md
 * 2025/03/06、【Tips】02_標準入力と標準出力.md
