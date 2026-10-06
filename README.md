@@ -93,7 +93,8 @@ Java、COBOL、Oracle SQLを用いた機能開発・改修対応に加え、障�
 
 3. 基本情報技術者試験（2026/05/25取得）
    - **学習メモ1**: [基本情報技術者試験](基本情報技術者試験/)
-   - **学習メモ2**: [基本情報技術者対策(試算表)](https://docs.google.com/spreadsheets/d/1hhQGJZJyuUzygikoteQMmnXlfWEoNTti7C5zuS0sTCM/edit?gid=0#gid=0)<p align="center">
+   - **学習メモ2**: [基本情報技術者対策(試算表)](https://docs.google.com/spreadsheets/d/1hhQGJZJyuUzygikoteQMmnXlfWEoNTti7C5zuS0sTCM/edit?gid=0#gid=0)
+<p align="center">
   <img src="履歴書用データ/基本情報技術者試験.png" width="50%">
 </p>
 
