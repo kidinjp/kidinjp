@@ -43,6 +43,11 @@ PriorityQueue<String> pqWithCapacity = new PriorityQueue<>(50);
 
 // 初期要素付きで生成する（Arrays.asListを使う）import java.util.Arrays;も必要となる
 PriorityQueue<String> pqWithElements = new PriorityQueue<>(Arrays.asList("Apple", "Banana", "Cherry"));
+
+// ラムダ式を利用した生成。インデックスを使って箱の p を参照し、今後poll()をする時、その p が大きい順から取り出す
+PriorityQueue<Integer> queue = new PriorityQueue<>(
+ (a, b) -> Integer.compare(boxes[b].p, boxes[a].p)
+);
 ```
 
 ***************************************************************************
