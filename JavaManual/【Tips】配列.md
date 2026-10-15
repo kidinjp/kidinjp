@@ -8,6 +8,7 @@
   * [出力](#出力)
     * [二重配列のforEach](#二重配列のforeach)
     * [join](#join)
+    * [key + valueのような出力](#key--valueのような出力)
 * [Arraysの静的メソッド](#arraysの静的メソッド)
   * [ある要素で配列を埋め尽くす（初期化）](#ある要素で配列を埋め尽くす初期化)
   * [指定した計算式で初期化](#指定した計算式で初期化)
@@ -110,6 +111,14 @@ Arrays.stream(teams).forEach(i -> {
 #### join
 System.out.println(String.join(" ", arr));  
 ※ String[]などの文字列にのみに対応可能
+
+#### key + valueのような出力
+* 下記例は、`a 123`...`z 999`のような効果が得られる出力
+```Java
+long[] arr = new long[26];
+IntStream.range(0, 26)
+         .forEach(i -> System.out.println((char) ('a' + i) + " " + arr[i]));
+```
 
 ***************************************************************************
 ## Arraysの静的メソッド
