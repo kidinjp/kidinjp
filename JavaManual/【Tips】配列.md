@@ -109,8 +109,15 @@ Arrays.stream(teams).forEach(i -> {
 ```
 
 #### join
+```Java
+// String[] -> "A B C..."
 System.out.println(String.join(" ", arr));  
-※ String[]などの文字列にのみに対応可能
+
+// int[] -> "1 2 3..."
+System.out.println(String.join(" ", Arrays.stream(kotae.poll())
+                                          .mapToObj(String::valueOf)
+                                          .toArray(String[]::new)));
+```
 
 #### key + valueのような出力
 * 下記例は、`a 123`...`z 999`のような効果が得られる出力
